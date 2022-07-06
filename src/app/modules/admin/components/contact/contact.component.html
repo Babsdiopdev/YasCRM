@@ -1,0 +1,183 @@
+<!-- Content Wrapper.-->
+<div class="content-wrapper">
+    <!-- Content Header -->
+    <div class="content-header">
+        <div class="container-fluid">
+            <div class="row mb-2">
+                <div class="col-sm-6">
+                    <h6 class="m-0 p-0text-dark">Contact</h6>
+                </div>
+                <div class="col-sm-6" style="text-align: end;">
+                    <span ><a>CRM</a></span> / <span><a>Contact</a></span>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- Main content -->
+    <section class="content">
+        <div class="container-fluid">
+            <div class="row">
+                <div class="col-md-4">
+                    <div class="small-box bg-gradient-warning">
+                        <div class="inner">
+                            <h3>{{contacts.length}}</h3>
+                            <p>Contacts</p>
+                        </div>
+                        <div class="icon">
+                            <i class="fas fa-user-plus"></i>
+                        </div>
+                        <a href="#" class="small-box-footer">
+                            More info <i class="fas fa-arrow-circle-right"></i>
+                        </a>
+                    </div>
+                </div>
+                <div class="col-md-4">
+                    <div class="small-box bg-info">
+                        <div class="inner">
+                            <h3>{{stats?.CLIENT_STAT}}</h3>
+                            <p>Clients</p>
+                        </div>
+                        <div class="icon">
+                            <i class="fas fa-user-plus"></i>
+                        </div>
+                        <a href="#" class="small-box-footer">
+                            More info <i class="fas fa-arrow-circle-right"></i>
+                        </a>
+                    </div>
+                </div>
+                <div class="col-md-4">
+                    <div class="small-box bg-gradient-success">
+                        <div class="inner">
+                            <h3>{{stats?.PROSPECT_STAT}}</h3>
+                            <p>Prosects</p>
+                        </div>
+                        <div class="icon">
+                            <i class="fas fa-user-plus"></i>
+                        </div>
+                        <a href="#" class="small-box-footer">
+                            More info <i class="fas fa-arrow-circle-right"></i>
+                        </a>
+                    </div>
+                </div>
+                <div class="col-md-12">
+                    <p-table #dt1 [value]="contacts" dataKey="id" [rows]="10" [showCurrentPageReport]="true"
+                        [rowsPerPageOptions]="[10,25,50]" styleClass="p-datatable-customers p-datatable-gridlines"
+                        [paginator]="true" currentPageReportTemplate="{last} / {totalRecords} contacts"
+                        [globalFilterFields]="['nom', 'prenom', 'telephone', 'pays', 'typeContact', 'email', 'reference', 'civilite', 'fonction']">
+                        <ng-template pTemplate="caption">
+                            <div class="row">
+                                <div class="col-sm-6 text-left">
+                                    <span class="p-input-icon-right p-ml-auto">
+                                        <i class="pi pi-search"></i>
+                                        <input pInputText type="text" (input)="applyFilterGlobal($event, 'contains')" placeholder="mot clé" />
+                                    </span>
+                                </div>
+                                <div class="col-sm-6 text-right">
+                                    <button pButton pRipple type="button" label="Nouveau contact" icon="pi pi-plus" iconPos="right" class="p-button-raised p-button-text"></button>
+                                </div>
+                                </div>
+                        </ng-template>
+                        <ng-template pTemplate="header">
+                            <tr>
+                                <th>
+                                    <div class="p-d-flex p-jc-between p-ai-center">
+                                        Référence                                 
+                                    </div>
+                                </th>
+                                <th>
+                                    <div class="p-d-flex p-jc-between p-ai-center">
+                                        Nom
+                                    </div>
+                                </th>
+                                <th>
+                                    <div class="p-d-flex p-jc-between p-ai-center">
+                                        Téléphone
+                                    </div>
+                                </th>
+                                <th>
+                                    <div class="p-d-flex p-jc-between p-ai-center">
+                                        Email
+                                    </div>
+                                </th>
+                                <th>
+                                    <div class="p-d-flex p-jc-between p-ai-center">
+                                        Civilité
+                                    </div>
+                                </th>
+                                <th>
+                                    <div class="p-d-flex p-jc-between p-ai-center">
+                                        Pays
+                                    </div>
+                                </th>
+                                <th>
+                                    <div class="p-d-flex p-jc-between p-ai-center">
+                                        Fonction
+                                    </div>
+                                </th>
+                                <th>
+                                    <div class="p-d-flex p-jc-between p-ai-center">
+                                        Type
+                                    </div>
+                                </th>
+                                <th>
+                                    <div class="p-d-flex p-jc-between p-ai-center">
+                                        Actions
+                                    </div>
+                                </th>
+                            </tr>
+                        </ng-template>
+                        <ng-template pTemplate="body" let-contact>
+                            <tr>
+                                <td>
+                                    {{contact.reference}}
+                                </td>
+                                <td>
+                                    {{contact.prenom}} {{contact.nom}}
+                                </td>
+                                <td>
+                                    {{contact.telephone}}
+                                </td>
+                                <td>
+                                    {{contact.email}}
+                                </td>
+                                <td>
+                                    {{contact.civilite}}
+                                </td>
+                                <td>
+                                    {{contact.pays}}
+                                </td>
+                                <td>
+                                    {{contact.fonction}}
+                                </td>
+                                <td>
+                                    {{contact.typeContact}}
+                                </td>
+                                <td>
+                                    <button mat-icon-button [matMenuTriggerFor]="menu" aria-label="Example icon-button with a menu">
+                                        <mat-icon>more_vert</mat-icon>
+                                    </button>
+                                    <mat-menu #menu="matMenu" id="matMenu">
+                                        <button mat-menu-item class="buttonMenu">
+                                            <span>Modifier</span>
+                                            <mat-icon>edit</mat-icon>
+                                        </button>
+                                        <button mat-menu-item class="buttonMenu" (click)="ondeleteContactById(contact.id)">
+                                            <span>Supprimer</span>
+                                            <mat-icon>delete_forever</mat-icon>
+                                        </button>
+                                    </mat-menu>
+                                </td>
+                            </tr>
+                        </ng-template>
+                        <ng-template pTemplate="emptymessage">
+                            <tr>
+                                <td colspan="12">{{contactResponse?.message}}</td>
+                            </tr>
+                        </ng-template>
+                    </p-table>
+                </div>
+            </div>
+        </div>
+    </section>
+</div>
+<!-- /.content-wrapper -->
