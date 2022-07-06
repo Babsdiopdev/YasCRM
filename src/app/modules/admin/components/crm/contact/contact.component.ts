@@ -1,6 +1,6 @@
 import { Component, OnInit, ViewChild } from '@angular/core';
 import { Table } from 'primeng/table';
-import { Contact } from 'src/app/modules/contact.model';
+import { Contact } from 'src/app/models/contact.model';
 import { ContactService } from 'src/app/serices/contact.service';
 
 @Component({
@@ -9,6 +9,7 @@ import { ContactService } from 'src/app/serices/contact.service';
   styleUrls: ['./contact.component.scss']
 })
 export class ContactComponent implements OnInit {
+
   @ViewChild('dt1 ') dt1: Table | undefined;
 
   contactResponse: any;
