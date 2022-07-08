@@ -73,7 +73,7 @@
                                     </span>
                                 </div>
                                 <div class="col-sm-6 text-right">
-                                    <button pButton pRipple type="button" label="Nouveau contact" icon="pi pi-plus" iconPos="right" class="p-button-raised p-button-text"></button>
+                                    <button (click)="onopenAddContact()" pButton pRipple type="button" label="Nouveau contact" icon="pi pi-plus" iconPos="right" class="p-button-raised p-button-text"></button>
                                 </div>
                                 </div>
                         </ng-template>
@@ -157,11 +157,11 @@
                                         <mat-icon>more_vert</mat-icon>
                                     </button>
                                     <mat-menu #menu="matMenu" id="matMenu">
-                                        <button mat-menu-item class="buttonMenu">
+                                        <button mat-menu-item class="buttonMenu" (click)="openupdateContact(contact)">
                                             <span>Modifier</span>
                                             <mat-icon>edit</mat-icon>
                                         </button>
-                                        <button mat-menu-item class="buttonMenu" (click)="ondeleteContactById(contact.id)">
+                                        <button mat-menu-item class="buttonMenu" (click)="ondeleteContactById(contact)">
                                             <span>Supprimer</span>
                                             <mat-icon>delete_forever</mat-icon>
                                         </button>
