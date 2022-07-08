@@ -1,7 +1,7 @@
 export interface Contact {
-    id: number
-    photo: string
-    reference: string
+    id?: number
+    photo?: string
+    reference?: string
     nom: string
     prenom: string
     telephone: string
