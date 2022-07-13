@@ -1,0 +1,161 @@
+<!-- Content Wrapper.-->
+<div class="content-wrapper">
+    <!-- Content Header -->
+    <div class="content-header">
+        <div class="container-fluid">
+            <div class="row mb-2">
+                <div class="col-sm-6">
+                    <h6 class="m-0 p-0text-dark">Commande</h6>
+                </div>
+                <div class="col-sm-6" style="text-align: end;">
+                    <span ><a>CRM</a></span> / <span><a>Commande</a></span>
+                </div>
+            </div>
+        </div>
+    </div>
+    <section class="content">
+        <div class="container-fluid">
+            <div class="row">
+                <div class="col-md-4">
+                    <div class="small-box bg-gradient-warning">
+                        <div class="inner">
+                            <h3>test</h3>
+                            <p>Totales Commandes</p>
+                        </div>
+                        <div class="icon">
+                            <i class="fas fa-user-plus"></i>
+                        </div>
+                        <a href="#" class="small-box-footer">
+                            More info <i class="fas fa-arrow-circle-right"></i>
+                        </a>
+                    </div>
+                </div>
+                <div class="col-md-4">
+                    <div class="small-box bg-info">
+                        <div class="inner">
+                            <h3></h3>
+                            <p>Commande en cours</p>
+                        </div>
+                        <div class="icon">
+                            <i class="fas fa-user-plus"></i>
+                        </div>
+                        <a href="#" class="small-box-footer">
+                            More info <i class="fas fa-arrow-circle-right"></i>
+                        </a>
+                    </div>
+                </div>
+                <div class="col-md-4">
+                    <div class="small-box bg-gradient-success">
+                        <div class="inner">
+                            <h3></h3>
+                            <p>Commande annulee
+
+                            </p>
+                        </div>
+                        <div class="icon">
+                            <i class="fas fa-user-plus"></i>
+                        </div>
+                        <a href="#" class="small-box-footer">
+                            More info <i class="fas fa-arrow-circle-right"></i>
+                        </a>
+                    </div>
+                </div>
+                <div class="col-md-12">
+                    <p-table #dt1 [value]="commandes" dataKey="id" [rows]="10" [showCurrentPageReport]="true"
+                        [rowsPerPageOptions]="[10,25,50]" styleClass="p-datatable-customers p-datatable-gridlines"
+                        [paginator]="true" currentPageReportTemplate="{last} / {totalRecords} Commandes"
+                        [globalFilterFields]="['contact', 'total commande', 'etape commande', 'etat commande']">
+                        <ng-template pTemplate="caption">
+                            <div class="row">
+                                <div class="col-sm-6 text-left">
+                                    <span class="p-input-icon-right p-ml-auto">
+                                        <i class="pi pi-search"></i>
+                                        <input pInputText type="text" (input)="applyFilterGlobal($event, 'contains')" placeholder="mot clé" />
+                                    </span>
+                                </div>
+                                <div class="col-sm-6 text-right">
+                                    <button pButton pRipple type="button" label="Nouvelle commande" icon="pi pi-plus" iconPos="right" class="p-button-raised p-button-text"></button>
+                                </div>
+                                </div>
+                        </ng-template>
+                        <ng-template pTemplate="header">
+                            <tr>
+                                <th>
+                                    <div class="p-d-flex p-jc-between p-ai-center">
+                                        Référence                                 
+                                    </div>
+                                </th>
+                                <th>
+                                    <div class="p-d-flex p-jc-between p-ai-center">
+                                        Contact
+                                    </div>
+                                </th>
+                                <th>
+                                    <div class="p-d-flex p-jc-between p-ai-center">
+                                        Total commande
+                                    </div>
+                                </th>
+                                <th>
+                                    <div class="p-d-flex p-jc-between p-ai-center">
+                                        Etape commande
+                                    </div>
+                                </th>
+                                <th>
+                                    <div class="p-d-flex p-jc-between p-ai-center">
+                                        Etat commade
+                                    </div>
+                                </th>
+                                
+                                <th>
+                                    <div class="p-d-flex p-jc-between p-ai-center">
+                                        Actions
+                                    </div>
+                                </th>
+                            </tr>
+                        </ng-template>
+                        <ng-template pTemplate="body" let-contact>
+                            <tr>
+                                <td>
+                                   
+                                </td>
+                                <td>
+                                   
+                                </td>
+                                <td>
+                                   
+                                </td>
+                                <td>
+                                   
+                                </td>
+                                <td>
+                                   
+                                </td>
+                               
+                                <td>
+                                    <button mat-icon-button [matMenuTriggerFor]="menu" aria-label="Example icon-button with a menu">
+                                        <mat-icon>more_vert</mat-icon>
+                                    </button>
+                                    <mat-menu #menu="matMenu" id="matMenu">
+                                        <button mat-menu-item class="buttonMenu">
+                                            <span>Modifier</span>
+                                            <mat-icon>edit</mat-icon>
+                                        </button>
+                                        <button mat-menu-item class="buttonMenu">
+                                            <span>Supprimer</span>
+                                            <mat-icon>delete_forever</mat-icon>
+                                        </button>
+                                    </mat-menu>
+                                </td>
+                            </tr>
+                        </ng-template>
+                        <ng-template pTemplate="emptymessage">
+                            <tr>
+                                <td colspan="12"></td>
+                            </tr>
+                        </ng-template>
+                    </p-table>
+                </div>
+            </div>
+        </div>
+    </section>
+</div>
