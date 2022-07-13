@@ -6,21 +6,27 @@ import { PrimengModule } from 'src/app/ui/primeng.module';
 import { MaterielModule } from 'src/app/ui/materiel.module';
 import { ContactComponent } from './components/crm/contact/contact.component';
 import { AddcommandeComponent } from './components/crm/commande/addcommande/addcommande.component';
+import { AddContactComponent } from './components/crm/contact/add-contact/add-contact.component';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
+import { FormContactComponent } from './components/crm/contact/form-contact/form-contact.component';
+import { UpdateContactComponent } from './components/crm/contact/update-contact/update-contact.component';
 import { CommandeComponent } from './components/crm/commande/commande.component';
-
 
 @NgModule({
   declarations: [
     ContactComponent,
     CommandeComponent,
-    AddcommandeComponent
-   
+    AddcommandeComponent,
+    AddContactComponent,
+    FormContactComponent,
+    UpdateContactComponent
   ],
   imports: [
     CommonModule,
     AdminRoutingModule,
     PrimengModule,
-    MaterielModule
+    MaterielModule,
+    ReactiveFormsModule
   ]
 })
 export class AdminModule { }
