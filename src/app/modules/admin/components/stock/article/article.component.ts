@@ -1,90 +1,84 @@
 import { Component, OnInit, ViewChild } from '@angular/core';
 import { MatDialog, MatDialogConfig } from '@angular/material/dialog';
 import { Table } from 'primeng/table';
-import { Contact } from 'src/app/models/contact.model';
-import { ContactService } from 'src/app/services/contact.service';
+import { Article } from 'src/app/models/article.model';
+import { ArticleService } from 'src/app/services/article.service';
 import Swal from 'sweetalert2';
-import { AddContactComponent } from './add-contact/add-contact.component';
-import { UpdateContactComponent } from './update-contact/update-contact.component';
+import { AddArticleComponent } from './add-article/add-article.component';
+import { UpdateArticleComponent } from './update-article/update-article.component';
 
 @Component({
-  selector: 'app-contact',
-  templateUrl: './contact.component.html',
-  styleUrls: ['./contact.component.scss']
+  selector: 'app-article',
+  templateUrl: './article.component.html',
+  styleUrls: ['./article.component.scss']
 })
-export class ContactComponent implements OnInit {
+export class ArticleComponent implements OnInit {
 
   @ViewChild('dt1 ') dt1: Table | undefined;
 
-  contactResponse: any;
-  contacts: Contact[] = [];
-  stats: any;
+  articleResponse: any;
+
+  articles: Article[] = [];
 
   constructor(
-    private contactService: ContactService,
+    private articleService: ArticleService,
     private dialog: MatDialog
   ) { }
 
   ngOnInit(): void {
-    this.getAllContacts();
-    this.getStatistiqueOfContact()
+    this.getAllArticlesByProduit();
   }
 
   applyFilterGlobal($event: any, stringVal: any) {
     this.dt1?.filterGlobal(($event.target as HTMLInputElement).value, stringVal);
   }
 
-  getAllContacts() {
-    this.contactService.getAllContacts().subscribe(
-      (response) => {
-        this.contactResponse = response;
-        this.contacts = response.payload;
-      }
-    );
-  }
 
-  getStatistiqueOfContact() {
-    this.contactService.getStatistiquesofContact().subscribe(
-      (response) => this.stats = response.payload
+  getAllArticlesByProduit() {
+    this.articleService.getAllArticlesByProduit().subscribe(
+      (response: any) => {
+        this.articleResponse = response;
+        this.articles = response.payload;
+      }
     )
   }
 
-  onopenAddContact() {
+  onopenAddArticle() {
     const dialogConfig = new MatDialogConfig();
     dialogConfig.maxWidth = '800px';
     dialogConfig.backdropClass = 'bacdrop-modal';
     dialogConfig.disableClose = true;
     dialogConfig.position = { top: '10px'};
-    const dialogRef = this.dialog.open(AddContactComponent, dialogConfig);
+    const dialogRef = this.dialog.open(AddArticleComponent, dialogConfig);
     dialogRef.afterClosed().subscribe(() => {
-      this.getAllContacts();
-      this.getStatistiqueOfContact();
+      this.getAllArticlesByProduit();
+      //this.getStatistiqueOfContact();
     });
   }
 
-  openupdateContact(contact: Contact) {
+  onopenUpdateArticle(article: Article) {
     const dialogConfig = new MatDialogConfig();
     dialogConfig.maxWidth = '800px';
     dialogConfig.backdropClass = 'bacdrop-modal';
     dialogConfig.disableClose = true;
     dialogConfig.position = { top: '5px' };
-    dialogConfig.data = { contact: contact}
-    const dialogRef = this.dialog.open(UpdateContactComponent, dialogConfig);
+    dialogConfig.data = { article: article }
+    const dialogRef = this.dialog.open(UpdateArticleComponent, dialogConfig);
     dialogRef.afterClosed().subscribe(() => {
-      this.getAllContacts();
+      this.getAllArticlesByProduit();
     });
   }
 
-  ondeleteContactById(contact: Contact) {
+  ondeleteArticleById(article: Article) {
     Swal.fire({
       icon: 'question',
-      title: `<small>Voulez-vous supprimer le contact</small><br /> ${contact.prenom} ${contact.nom} ?`,
+      title: `<small>Voulez-vous supprimer le contact</small><br /> ${article.libelle} ?`,
       showDenyButton: true,
       confirmButtonText: 'Confirmer',
       denyButtonText: 'Annuler',
     }).then((result) => {
       if (result.isConfirmed) {
-        this.contactService.deleContactById(contact.id!).subscribe(
+        this.articleService.deleteArticleById(article.id!).subscribe(
           (response) => {
             Swal.fire({
               position: 'top-end',
@@ -94,8 +88,8 @@ export class ContactComponent implements OnInit {
               timer: 1500
             }).then((result) => {
               if(result.dismiss && response.status === 'OK') {
-                this.getAllContacts();
-                this.getStatistiqueOfContact();
+                this.getAllArticlesByProduit();
+                //this.getStatistiqueOfContact();
               }
             });
           }

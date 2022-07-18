@@ -1,0 +1,41 @@
+<!-- Content Wrapper.-->
+<div class="content-wrapper">
+    <!-- Content Header -->
+    <div class="content-header">
+        <div class="container-fluid">
+            <div class="row mb-2">
+                <div class="col-sm-6">
+                    <h6 class="m-0 p-0text-dark">Configuration</h6>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- Main content -->
+    <section class="content">
+        <div class="container-fluid">
+            <div class="row">
+                <div class="col-12">
+                    <p-panel header="TVA" [toggleable]="true">
+                        <ng-template pTemplate="icons">
+                            <button pButton class=" p-link">
+                            </button>
+                        </ng-template>
+                        <form [formGroup]="tvaForm">
+                            <div class="row">
+                                <div class="col-md-6 col-sm-12">
+                                    <div class="form-group">
+                                        <input type="number" pInputText class="col-12"  placeholder="TVA" formControlName="tva">
+                                    </div>
+                                </div>
+                                <div class="col-md-6 col-sm-12" style="text-align: end;">
+                                    <button [disabled]="!tvaForm" pButton pRipple type="button" label="Sauvegarder" (click)="onupdateArticleByTva()"class="p-button-secondary"></button>
+                                </div>
+                            </div>
+                        </form>
+                    </p-panel>
+                </div>
+            </div>
+        </div>
+    </section>
+</div>
+<!-- /.content-wrapper -->
