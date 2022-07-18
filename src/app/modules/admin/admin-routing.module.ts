@@ -18,9 +18,13 @@ const routes: Routes = [
     component:AgendaComponent
   }
 ];
-
 @NgModule({ 
-  imports: [RouterModule.forChild(routes)],
-  exports: [RouterModule,FullCalendarModule]
+  imports: [
+    RouterModule.forChild(routes)
+  ],
+  exports: [
+    RouterModule,
+    FullCalendarModule
+  ]
 })
 export class AdminRoutingModule { }

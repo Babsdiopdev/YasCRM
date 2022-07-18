@@ -1,6 +1,5 @@
 import { CUSTOM_ELEMENTS_SCHEMA, NgModule, NO_ERRORS_SCHEMA } from '@angular/core';
 import { CommonModule } from '@angular/common';
-
 import { AdminRoutingModule } from './admin-routing.module';
 import { PrimengModule } from 'src/app/ui/primeng.module';
 import { MaterielModule } from 'src/app/ui/materiel.module';
@@ -30,10 +29,7 @@ import { AgendaComponent } from './components/crm/agenda/agenda.component';
     PrimengModule,
     MaterielModule,
     ReactiveFormsModule
-  ],
-  schemas: [
-    CUSTOM_ELEMENTS_SCHEMA,
-    NO_ERRORS_SCHEMA
   ]
+
 })
 export class AdminModule { }
