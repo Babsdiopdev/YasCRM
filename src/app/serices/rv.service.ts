@@ -8,18 +8,25 @@ import { Rv } from '../models/rv.model';
   providedIn: 'root'
 })
 export class RvService {
+  getAllContacts() {
+    throw new Error('Method not implemented.');
+  }
 
-  private host: string = environment.baseUrl;
+  host: string = environment.baseUrl;
 
   constructor(private httpClient: HttpClient) { }
 
-  getAllRv(): Observable<any> {
-    return this.httpClient.get<any>(`${this.host}/rvs`);
-  }
+ /*
   saveRv(rv:Rv): Observable<Rv>{
     return this.httpClient.post<Rv>
-    (this.host+"rv", rv);
+    (`${this.host}/rv`, rv);
+  }*/
+  getAllRv(): Observable<any>{
+    return this.httpClient.get<any>(`${this.host}/rvs`);
   }
-
+ saveRv(rv:Rv): Observable<Rv>{
+    return this.httpClient.post<Rv>
+    (`${this.host}/rv`, rv);
+  }
 
 }
