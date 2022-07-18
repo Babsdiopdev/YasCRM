@@ -14,13 +14,23 @@ export class CommandeComponent implements OnInit {
   dt1: any;
 
   constructor(
-    commandeService:CommandeService
+   private commandeService:CommandeService
   ) { }
 
   ngOnInit(): void {
+    this.getAllCommandes()
   }
   applyFilterGlobal($event: any, stringVal: any) {
     this.dt1?.filterGlobal(($event.target as HTMLInputElement).value, stringVal);
+  }
+  getAllCommandes(){
+    this.commandeService.getAllCommandes().subscribe(
+      (response) =>{
+        this.commandeResponse = Response
+        this.commandes = response.payload
+      }
+    )
+
   }
 
 }

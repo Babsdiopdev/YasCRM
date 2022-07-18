@@ -1,1 +1,46 @@
-<p>addcommande works!</p>
+<div class="header">
+    <h1 mat-dialog-title></h1>
+    <button mat-dialog-close pButton pRipple type="button" icon="pi pi-times" class="p-button-rounded p-button-danger p-button-outlined"></button>
+</div>
+<mat-dialog-content>
+    <form [formGroup]="commandeForm" #form>
+        <div class="row mt-2" >
+            <div class="col-md-8 col-sm-12">
+                <div class="form-group">
+                    <input type="text" pInputText class="col-12" placeholder="Prenom" formControlName="prenom">
+                </div>
+            </div>
+            <div class="col-md-4 col-sm-12">
+                <div class="form-group">
+                    <input type="text" pInputText class="col-12"  placeholder="Nom" formControlName="nom">
+                </div>
+            </div>
+            <div class="col-md-4 col-sm-12">
+                <div class="form-group">
+                    <input type="text" pInputText class="col-12" placeholder="Téléphone" formControlName="telephone">
+                </div>
+            </div>
+            <div class="col-md-4 col-sm-12">
+                <div class="form-group">
+                    <input type="email" pInputText class="col-12" placeholder="email" formControlName="email">
+                </div>
+            </div>
+           
+            <div class="col-md-4 col-sm-12">
+                <div class="form-group">
+                    <input type="text" pInputText class="col-12" placeholder="Pays" formControlName="pays">
+                </div>
+            </div>
+            <div class="col-md-4 col-sm-12">
+                <div class="form-group">
+                    <input type="text" pInputText class="col-12" placeholder="fonction" formControlName="fonction">
+                </div>
+            </div>
+            
+        </div>  
+    </form>
+</mat-dialog-content>
+<mat-dialog-actions align="end">
+    <button mat-dialog-close pButton pRipple type="button" label="Annuler" icon="pi pi-times" iconPos="right" class="p-button-text p-button-danger mr-2"></button>
+    <button  pButton pRipple type="button" [label]="buttonLabel" icon="pi pi-check" iconPos="right" class="p-button-text"></button>
+</mat-dialog-actions>

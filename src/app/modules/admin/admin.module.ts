@@ -1,4 +1,4 @@
-import { NgModule } from '@angular/core';
+import { CUSTOM_ELEMENTS_SCHEMA, NgModule, NO_ERRORS_SCHEMA } from '@angular/core';
 import { CommonModule } from '@angular/common';
 
 import { AdminRoutingModule } from './admin-routing.module';
@@ -11,6 +11,7 @@ import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { FormContactComponent } from './components/crm/contact/form-contact/form-contact.component';
 import { UpdateContactComponent } from './components/crm/contact/update-contact/update-contact.component';
 import { CommandeComponent } from './components/crm/commande/commande.component';
+import { AgendaComponent } from './components/crm/agenda/agenda.component';
 
 @NgModule({
   declarations: [
@@ -19,7 +20,9 @@ import { CommandeComponent } from './components/crm/commande/commande.component'
     AddcommandeComponent,
     AddContactComponent,
     FormContactComponent,
-    UpdateContactComponent
+    UpdateContactComponent,
+    AgendaComponent,
+  
   ],
   imports: [
     CommonModule,
@@ -27,6 +30,10 @@ import { CommandeComponent } from './components/crm/commande/commande.component'
     PrimengModule,
     MaterielModule,
     ReactiveFormsModule
+  ],
+  schemas: [
+    CUSTOM_ELEMENTS_SCHEMA,
+    NO_ERRORS_SCHEMA
   ]
 })
 export class AdminModule { }

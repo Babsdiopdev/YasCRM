@@ -1,4 +1,5 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, Input, OnInit } from '@angular/core';
+import { FormGroup } from '@angular/forms';
 
 @Component({
   selector: 'app-addcommande',
@@ -6,6 +7,9 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./addcommande.component.scss']
 })
 export class AddcommandeComponent implements OnInit {
+  
+  commandeForm!: FormGroup;
+  @Input() buttonLabel: string = '';
 
   constructor() { }
 
