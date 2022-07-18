@@ -22,7 +22,7 @@ export class FormContactComponent implements OnInit {
 
   contactForm!: FormGroup;
 
-   constructor(
+  constructor(
     private fb: FormBuilder,
     private contactService: ContactService,
     private dialog: MatDialog
