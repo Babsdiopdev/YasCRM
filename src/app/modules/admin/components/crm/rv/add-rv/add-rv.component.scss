@@ -1,0 +1,32 @@
+#container {
+    #head {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        legend {
+            font-size: 1.2em;
+            margin: 0;
+        }
+        em {
+            cursor: pointer;
+        }
+    }
+    #content {
+        #articles {
+            span {
+                cursor: pointer;
+                text-align: center;
+                margin-bottom: 10px;
+            }
+            table {
+                tr td {
+                    vertical-align: middle;
+                    padding: 5px;
+                }
+            }
+        }
+        #footer {
+            text-align: end;
+        }
+    }
+}

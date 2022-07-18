@@ -8,7 +8,7 @@ import { AppRoutingModule } from '../app-routing.module';
 import { MaterielModule } from '../ui/materiel.module';
 
 
-   
+
 @NgModule({
   declarations: [
     HeaderComponent,
@@ -21,6 +21,7 @@ import { MaterielModule } from '../ui/materiel.module';
     AppRoutingModule,
     MaterielModule
   ],
-  exports: []
+  exports: [  FullComponent,
+    FooterComponent,]
 })
 export class SharedModule { }
