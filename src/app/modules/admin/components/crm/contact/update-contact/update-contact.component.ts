@@ -12,6 +12,8 @@ export class UpdateContactComponent implements OnInit {
   contact!: Contact;
 
   title: string = '';
+  typeOperation: string = "update"
+  buttonLabel: string = "Modifier"
 
   constructor(
     @Inject(MAT_DIALOG_DATA) private data: any

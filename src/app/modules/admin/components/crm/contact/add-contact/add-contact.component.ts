@@ -13,6 +13,8 @@ import { MatDialog, MAT_DIALOG_SCROLL_STRATEGY_FACTORY } from '@angular/material
 export class AddContactComponent implements OnInit {
 
   title: string = 'Ajout de contact';
+  typeOperation: string = "save";
+  buttonLabel: string = "Ajouter"
 
   constructor() {}
 
