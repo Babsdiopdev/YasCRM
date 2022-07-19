@@ -10,6 +10,11 @@ import { PrimengModule } from '../ui/primeng.module';
 import { HttpClientModule } from '@angular/common/http';
 import { ReactiveFormsModule } from '@angular/forms';
 
+<<<<<<< HEAD
+=======
+
+
+>>>>>>> nogaye
 @NgModule({
   declarations: [
     HeaderComponent,
@@ -23,11 +28,16 @@ import { ReactiveFormsModule } from '@angular/forms';
     PrimengModule,
     MaterielModule,
   ],
+<<<<<<< HEAD
   exports: [
     PrimengModule,
     MaterielModule,
     HttpClientModule,
     ReactiveFormsModule
   ]
+=======
+  exports: [  FullComponent,
+    FooterComponent,]
+>>>>>>> nogaye
 })
 export class SharedModule { }

@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 import { Component, OnInit, ViewChild } from '@angular/core';
 import { MatDialog, MatDialogConfig } from '@angular/material/dialog';
 import { Table } from 'primeng/table';
@@ -6,6 +7,9 @@ import { CommandeService } from 'src/app/services/commande.service';
 import Swal from 'sweetalert2';
 import { AddCommandeComponent } from './add-commande/add-commande.component';
 import { UpdateCommandeComponent } from './update-commande/update-commande.component';
+=======
+import { Component, OnInit } from '@angular/core';
+>>>>>>> nogaye
 
 @Component({
   selector: 'app-commande',
@@ -14,6 +18,7 @@ import { UpdateCommandeComponent } from './update-commande/update-commande.compo
 })
 export class CommandeComponent implements OnInit {
 
+<<<<<<< HEAD
   @ViewChild('dt1 ') dt1: Table | undefined;
 
   commandeResponse: any;
@@ -69,3 +74,11 @@ export class CommandeComponent implements OnInit {
 
   ondeleteCommandeById(commande: Commande) {}
 }
+=======
+  constructor() { }
+
+  ngOnInit(): void {
+  }
+
+}
+>>>>>>> nogaye
