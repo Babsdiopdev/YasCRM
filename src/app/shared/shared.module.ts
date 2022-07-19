@@ -10,8 +10,6 @@ import { PrimengModule } from '../ui/primeng.module';
 import { HttpClientModule } from '@angular/common/http';
 import { ReactiveFormsModule } from '@angular/forms';
 
-
-   
 @NgModule({
   declarations: [
     HeaderComponent,
