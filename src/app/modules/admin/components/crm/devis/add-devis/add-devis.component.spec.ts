@@ -1,20 +1,20 @@
 import { ComponentFixture, TestBed } from '@angular/core/testing';
 
-import { AppDevisComponent } from './app-devis.component';
+import { AddDevisComponent } from './add-devis.component';
 
-describe('AppDevisComponent', () => {
-  let component: AppDevisComponent;
-  let fixture: ComponentFixture<AppDevisComponent>;
+describe('AddDevisComponent', () => {
+  let component: AddDevisComponent;
+  let fixture: ComponentFixture<AddDevisComponent>;
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
-      declarations: [ AppDevisComponent ]
+      declarations: [ AddDevisComponent ]
     })
     .compileComponents();
   });
 
   beforeEach(() => {
-    fixture = TestBed.createComponent(AppDevisComponent);
+    fixture = TestBed.createComponent(AddDevisComponent);
     component = fixture.componentInstance;
     fixture.detectChanges();
   });

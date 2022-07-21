@@ -15,7 +15,7 @@ import { ReactiveFormsModule } from '@angular/forms';
     HeaderComponent,
     FooterComponent,
     SidebarComponent,
-    FullComponent
+    FullComponent,
   ],
   imports: [
     CommonModule,
@@ -27,7 +27,7 @@ import { ReactiveFormsModule } from '@angular/forms';
     PrimengModule,
     MaterielModule,
     HttpClientModule,
-    ReactiveFormsModule
+    ReactiveFormsModule,
   ]
 })
 export class SharedModule { }
