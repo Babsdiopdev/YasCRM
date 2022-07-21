@@ -18,12 +18,14 @@ import { CommandeComponent } from './components/crm/commande/commande.component'
 import { AddCommandeComponent } from './components/crm/commande/add-commande/add-commande.component';
 import { UpdateCommandeComponent } from './components/crm/commande/update-commande/update-commande.component';
 import { DevisComponent } from './components/crm/devis/devis.component';
-import { AppDevisComponent } from './components/crm/devis/app-devis/app-devis.component';
 import { UpdateDevisComponent } from './components/crm/devis/update-devis/update-devis.component';
 import { FormCommandeComponent } from './components/crm/commande/form-commande/form-commande.component';
+import { AddDevisComponent } from './components/crm/devis/add-devis/add-devis.component';
+import { FormatEnumPipe } from 'src/app/shared/pipe/format-enum.pipe';
 
 @NgModule({
   declarations: [
+    FormatEnumPipe,
     ContactComponent,
     AddContactComponent,
     FormContactComponent,
@@ -37,16 +39,16 @@ import { FormCommandeComponent } from './components/crm/commande/form-commande/f
     AddCommandeComponent,
     UpdateCommandeComponent,
     DevisComponent,
-    AppDevisComponent,
     UpdateDevisComponent,
-    FormCommandeComponent
+    FormCommandeComponent,
+    AddDevisComponent
   ],
   imports: [
     CommonModule,
     AdminRoutingModule,
     PrimengModule,
     MaterielModule,
-    ReactiveFormsModule
+    ReactiveFormsModule,
   ]
 })
 export class AdminModule { }

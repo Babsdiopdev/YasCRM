@@ -1,14 +1,14 @@
 <div class="header">
     <h1 mat-dialog-title>{{title}}</h1>
-    <button mat-dialog-close pButton pRipple type="button" icon="pi pi-times" class="p-button-rounded p-button-danger p-button-outlined"></button>
+    <button (click)="oncloseDialog()" pButton pRipple type="button" icon="pi pi-times" class="p-button-rounded p-button-danger p-button-outlined"></button>
 </div>
-<mat-dialog-content>
-    <form [formGroup]="commandeForm" #form>
+<mat-dialog-content #formulaire>
+    <form [formGroup]="commandeForm">
         <div class="row mt-2" >
             <div class="col-md-12">
                 <div class="form-group">
                     <div class="form-group">
-                        <p-dropdown [options]="contacts" optionLabel="prenom" placeholder="Contact" [style]="{'width': '100%'}" [appendTo]="form" formControlName="contact"></p-dropdown>
+                        <p-dropdown [options]="contacts" optionLabel="fullName" placeholder="Contact" [style]="{'width': '100%'}" [appendTo]="formulaire" formControlName="contact"></p-dropdown>
                     </div>
                 </div>
             </div>
@@ -17,7 +17,7 @@
                     <div class="col-md-6 col-sm-12">
                         <div class="form-group">
                             <p-dropdown [options]="articles" optionLabel="libelle" placeholder="Articles" 
-                                [style]="{'width': '100%'}" [appendTo]="form" formControlName="article">
+                                [style]="{'width': '100%'}" [appendTo]="formulaire" formControlName="article">
                             </p-dropdown>
                         </div>
                     </div>
@@ -28,7 +28,7 @@
                     </div>
                     <div class="col-md-1 col-sm-12" style="justify-content: space-between;">
                         <button style="float: right;" pButton pRipple 
-                            type="button" icon="pi pi-times" (click)="removeArticleForm(i)"
+                            type="button" icon="pi pi-times" (click)="removeArticleFormCommande(i)"
                             class="p-button-rounded p-button-outlined p-button-danger">
                         </button>
                     </div>
@@ -39,14 +39,18 @@
             </div>
             <div class="col-md-12">
                 <div class="form-group">
-                    <p-dropdown [options]="etatOptions" optionLabel="label" placeholder="Etat" [style]="{'width': '100%'}" [appendTo]="form" formControlName="etat"></p-dropdown>
+                    <p-dropdown [options]="etatOptions" 
+                        optionLabel="label" optionDisabled="disabled" 
+                        placeholder="Etat" [style]="{'width': '100%'}"
+                        [appendTo]="formulaire" formControlName="etat"
+                        [disabled]="(typeOperation === 'save')? true : false">
+                    </p-dropdown>
                 </div>
-            </div>
-            
+            </div>         
         </div>  
     </form>
 </mat-dialog-content>
 <mat-dialog-actions align="end">
-    <button mat-dialog-close pButton pRipple type="button" label="Annuler" icon="pi pi-times" iconPos="right" class="p-button-text p-button-danger mr-2"></button>
+    <button (click)="oncloseDialog()" pButton pRipple type="button" label="Annuler" icon="pi pi-times" iconPos="right" class="p-button-text p-button-danger mr-2"></button>
     <button  [disabled]="!commandeForm.valid" (click)="onsaveCommande()"pButton pRipple type="button" [label]="buttonLabel" icon="pi pi-check" iconPos="right" class="p-button-text"></button>
 </mat-dialog-actions>
