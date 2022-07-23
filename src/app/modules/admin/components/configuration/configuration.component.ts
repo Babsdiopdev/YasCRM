@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
+import { Config } from 'src/app/models/Config.model';
 import { ConfigurationService } from 'src/app/services/configuration.service';
 import Swal from 'sweetalert2';
 
@@ -10,7 +11,7 @@ import Swal from 'sweetalert2';
 })
 export class ConfigurationComponent implements OnInit {
 
-  panelToggle: boolean = false;
+  configs!: Config;
 
   tvaForm!: FormGroup;
 
@@ -20,13 +21,23 @@ export class ConfigurationComponent implements OnInit {
   ) { }
 
   ngOnInit(): void {
+    this.getConfigs();
+
     this.tvaForm = this.createTvaForm();
   }
 
   createTvaForm(): FormGroup {
     return this.fb.group({
-      tva: ['', Validators.required]
+      tva: [null, Validators.required]
     });
+  }
+
+  getConfigs() {
+    this.configurationService.getConfigs().subscribe(
+      (response) => {
+        this.configs = response.payload
+      }
+    );
   }
 
   onupdateArticleByTva() {
@@ -41,7 +52,7 @@ export class ConfigurationComponent implements OnInit {
           timer: 1500
         })
       }
-    )
+    );
   }
 
 }

@@ -11,6 +11,7 @@ import {MessageModule} from 'primeng/message';
 import {PanelModule} from 'primeng/panel';
 import {MultiSelectModule} from 'primeng/multiselect';
 import {DividerModule} from 'primeng/divider';
+import { AccordionModule } from 'primeng/accordion';
 
 
 @NgModule({
@@ -28,7 +29,8 @@ import {DividerModule} from 'primeng/divider';
     MessageModule,
     PanelModule,
     MultiSelectModule,
-    DividerModule
+    DividerModule,
+    AccordionModule
   ]
 })
 export class PrimengModule { }
