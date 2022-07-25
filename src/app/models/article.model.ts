@@ -4,9 +4,9 @@ export interface Article {
     libelle: string
     prixVente: number
     tva?: number
-    etat: string
+    etat?: string
     type?: string
-    qte: number
+    qte?: number
     ventes?: any[]
     achats?: any[]
 }

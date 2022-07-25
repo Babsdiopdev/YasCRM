@@ -22,13 +22,8 @@ import { ReactiveFormsModule } from '@angular/forms';
     PrimengModule,
     SharedModule,
     BrowserAnimationsModule,
-<<<<<<< HEAD
     HttpClientModule,
     ReactiveFormsModule
-=======
-    HttpClientModule
-
->>>>>>> nogaye
   ],
   providers: [],
   bootstrap: [AppComponent]

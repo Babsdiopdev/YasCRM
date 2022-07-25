@@ -10,4 +10,5 @@ export interface Contact {
     pays: string
     fonction: string
     typeContact: string
+    fullName?:string
 }

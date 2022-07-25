@@ -1,15 +1,13 @@
-<<<<<<< HEAD
+
 import { Component, OnInit, ViewChild } from '@angular/core';
 import { MatDialog, MatDialogConfig } from '@angular/material/dialog';
 import { Table } from 'primeng/table';
+import { CommandeHelper } from 'src/app/helpers/commande/commande.helper';
 import { Commande } from 'src/app/models/commande.model';
 import { CommandeService } from 'src/app/services/commande.service';
 import Swal from 'sweetalert2';
 import { AddCommandeComponent } from './add-commande/add-commande.component';
 import { UpdateCommandeComponent } from './update-commande/update-commande.component';
-=======
-import { Component, OnInit } from '@angular/core';
->>>>>>> nogaye
 
 @Component({
   selector: 'app-commande',
@@ -18,7 +16,7 @@ import { Component, OnInit } from '@angular/core';
 })
 export class CommandeComponent implements OnInit {
 
-<<<<<<< HEAD
+
   @ViewChild('dt1 ') dt1: Table | undefined;
 
   commandeResponse: any;
@@ -30,16 +28,15 @@ export class CommandeComponent implements OnInit {
   ) { }
 
   ngOnInit(): void {
-    this.getOnlyCommande();
-    
+    this.getAllCommandes();
   }
 
   applyFilterGlobal($event: any, stringVal: any) {
     this.dt1?.filterGlobal(($event.target as HTMLInputElement).value, stringVal);
   }
 
-  getOnlyCommande() {
-    this.commandeService.getOnlyCommandes().subscribe(
+  getAllCommandes() {
+    this.commandeService.getAllCommandes('commande').subscribe(
       (response) => {
         this.commandeResponse = response;
         this.commandes = response.payload;
@@ -55,7 +52,7 @@ export class CommandeComponent implements OnInit {
     dialogConfig.position = { top: '10px'};
     const dialogRef = this.dialog.open(AddCommandeComponent, dialogConfig);
     dialogRef.afterClosed().subscribe(() => {
-      this.getOnlyCommande();
+      this.getAllCommandes();
     });
   }
 
@@ -68,17 +65,61 @@ export class CommandeComponent implements OnInit {
     dialogConfig.data = { commande: commande }
     const dialogRef = this.dialog.open(UpdateCommandeComponent, dialogConfig);
     dialogRef.afterClosed().subscribe(() => {
-      this.getOnlyCommande();
+      this.getAllCommandes();
     });
   }
 
-  ondeleteCommandeById(commande: Commande) {}
-}
-=======
-  constructor() { }
+//   ondeleteCommandeById(commande: Commande) {}
+// }
 
-  ngOnInit(): void {
+  ondeleteCommandeById(commande: Commande) {
+    Swal.fire({
+      icon: 'question',
+      title: `<small>Voulez-vous supprimer la commande</small><br /> ${commande.reference} ?`,
+      showDenyButton: true,
+      confirmButtonText: 'Confirmer',
+      denyButtonText: 'Annuler',
+    }).then((result) => {
+      if (result.isConfirmed) {
+        this.commandeService.deleteCommandeById(commande.id!).subscribe(
+          (response) => {
+            Swal.fire({
+              position: 'top-end',
+              icon: (response.status === 'OK') ? 'success': 'error',
+              title: `<small>${response.message}</small>`,
+              showConfirmButton: false,
+              timer: 1500
+            }).then((result) => {
+              if(result.dismiss && response.status === 'OK') {
+                this.getAllCommandes();
+              }
+            });
+          }
+        );
+      }
+    })
   }
 
-}
->>>>>>> nogaye
+  onvalidateCommande(commande: Commande) {
+    const commandeHelper: CommandeHelper = new CommandeHelper(this.commandeService);
+    commandeHelper.updateCommande(this, undefined, commande, undefined, 'VALIDE', 'COMMANDE');
+  }
+
+  onCancelCommande(commande: Commande) {
+    const commandeHelper: CommandeHelper = new CommandeHelper(this.commandeService);
+    commandeHelper.updateCommande(this, undefined, commande, undefined, 'ANNULE', 'COMMANDE');
+  }
+
+  ongenerateFacture(commande: Commande) {}
+
+  getColor(etat: any): string{
+    if(etat === 'VALIDE')
+      return 'success';
+    else if(etat === 'EN_COURS')
+      return 'info'
+    else if(etat === 'ANNULE')
+      return 'error'
+    else return '';
+  }}
+
+

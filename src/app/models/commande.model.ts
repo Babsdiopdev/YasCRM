@@ -7,5 +7,5 @@ export interface Commande {
     etape: string
     etat: string
     contact?: Contact,
-    ventes?: []
+    ventes?: any[]
 }

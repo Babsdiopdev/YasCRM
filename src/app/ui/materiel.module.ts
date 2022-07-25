@@ -15,11 +15,7 @@ import {MatDialogModule} from '@angular/material/dialog';
     MatIconModule,
     MatMenuModule,
     MatButtonModule,
-<<<<<<< HEAD
     MatDialogModule,
-=======
-    MatDialogModule
->>>>>>> nogaye
   ]
 })
 export class MaterielModule { }

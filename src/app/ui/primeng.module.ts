@@ -10,6 +10,9 @@ import {MessagesModule} from 'primeng/messages';
 import {MessageModule} from 'primeng/message';
 import {PanelModule} from 'primeng/panel';
 import {MultiSelectModule} from 'primeng/multiselect';
+import {DividerModule} from 'primeng/divider';
+import { AccordionModule } from 'primeng/accordion';
+
 
 @NgModule({
   declarations: [],
@@ -25,7 +28,9 @@ import {MultiSelectModule} from 'primeng/multiselect';
     MessagesModule,
     MessageModule,
     PanelModule,
-    MultiSelectModule
+    MultiSelectModule,
+    DividerModule,
+    AccordionModule
   ]
 })
 export class PrimengModule { }

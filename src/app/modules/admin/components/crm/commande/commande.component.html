@@ -1,4 +1,3 @@
-<<<<<<< HEAD
 <!-- Content Wrapper.-->
 <div class="content-wrapper">
     <!-- Content Header -->
@@ -16,9 +15,7 @@
         <div class="container-fluid">
             <div class="row">
                 <div class="col-md-12">
-                    <p-table #dt1 [value]="commandes" dataKey="id" [rows]="10" [showCurrentPageReport]="true"
-                        [rowsPerPageOptions]="[10,25,50]" styleClass="p-datatable-customers p-datatable-gridlines"
-                        [paginator]="true" currentPageReportTemplate="{last} / {totalRecords} contacts"
+                    <p-table #dt1 [value]="commandes" dataKey="id" [rows]="10" [showCurrentPageReport]="true" [rowsPerPageOptions]="[10,25,50]" styleClass="p-datatable-customers p-datatable-gridlines" [paginator]="true" currentPageReportTemplate="{last} / {totalRecords} contacts"
                         [globalFilterFields]="['nom', 'prenom', 'telephone', 'pays', 'typeContact', 'email', 'reference', 'civilite', 'fonction']">
                         <ng-template pTemplate="caption">
                             <div class="row">
@@ -31,13 +28,14 @@
                                 <div class="col-sm-6 text-right">
                                     <button (click)="onopenAddCommande()" pButton pRipple type="button" label="Nouvelle commande" icon="pi pi-plus" iconPos="right" class="p-button-raised p-button-text"></button>
                                 </div>
-                                </div>
+                            </div>
                         </ng-template>
                         <ng-template pTemplate="header">
                             <tr>
+                                <th style="width: 3rem"></th>
                                 <th>
                                     <div class="p-d-flex p-jc-between p-ai-center">
-                                        Référence                                 
+                                        Référence
                                     </div>
                                 </th>
                                 <th>
@@ -67,8 +65,11 @@
                                 </th>
                             </tr>
                         </ng-template>
-                        <ng-template pTemplate="body" let-commande>
+                        <ng-template pTemplate="body" let-commande let-expanded="expanded">
                             <tr>
+                                <td>
+                                    <button type="button" pButton pRipple [pRowToggler]="commande" class="p-button-text p-button-rounded p-button-plain" [icon]="expanded ? 'pi pi-chevron-down' : 'pi pi-chevron-right'"></button>
+                                </td>
                                 <td>
                                     {{commande.reference}}
                                 </td>
@@ -82,7 +83,8 @@
                                     {{commande.totalCommande}}
                                 </td>
                                 <td>
-                                    {{commande.etat}}
+
+                                    <p-message [severity]="getColor(commande.etat)" text=" {{commande.etat | formatEnum}}"></p-message>
                                 </td>
                                 <td>
                                     <button mat-icon-button [matMenuTriggerFor]="menu" aria-label="Example icon-button with a menu">
@@ -97,7 +99,75 @@
                                             <span>Supprimer</span>
                                             <mat-icon>delete_forever</mat-icon>
                                         </button>
+
+                                        <p-divider></p-divider>
+
+                                        <button mat-menu-item *ngIf="commande.etat === 'EN_COURS'" class="buttonMenu" (click)="onvalidateCommande(commande)">
+                                            <span>Valider</span>
+                                            <mat-icon>check_circle</mat-icon>
+                                        </button>
+                                        <button mat-menu-item *ngIf="commande.etat === 'EN_COURS'" class="buttonMenu" (click)="onCancelCommande(commande)">
+                                            <span>Annuler</span>
+                                            <mat-icon>cancel</mat-icon>
+                                        </button>
+                                        <button mat-menu-item *ngIf="commande.etat === 'VALIDE'" class="buttonMenu" (click)="ongenerateFacture(commande)">
+                                            <span>Génerer facture</span>
+                                            <mat-icon>cached</mat-icon>
+                                        </button>
                                     </mat-menu>
+                                </td>
+                            </tr>
+                        </ng-template>
+                        <ng-template pTemplate="rowexpansion" let-commande>
+                            <tr>
+                                <td colspan="7">
+                                    <div class="p-3">
+                                        <p-table [value]="commande.ventes" dataKey="id">
+                                            <ng-template pTemplate="header">
+                                                <tr>
+                                                    <th>
+                                                        <div class="p-d-flex p-jc-between p-ai-center">
+                                                            Libellé
+                                                        </div>
+                                                    </th>
+                                                    <th>
+                                                        <div class="p-d-flex p-jc-between p-ai-center">
+                                                            Prix unitaire
+                                                        </div>
+                                                    </th>
+                                                    <th>
+                                                        <div class="p-d-flex p-jc-between p-ai-center">
+                                                            Qté
+                                                        </div>
+                                                    </th>
+                                                    <th>
+                                                        <div class="p-d-flex p-jc-between p-ai-center">
+                                                            Date
+                                                        </div>
+                                                    </th>
+                                                    <th>
+                                                        <div class="p-d-flex p-jc-between p-ai-center">
+                                                            Total
+                                                        </div>
+                                                    </th>
+                                                </tr>
+                                            </ng-template>
+                                            <ng-template pTemplate="body" let-vente>
+                                                <tr>
+                                                    <td>{{vente.article.libelle}}</td>
+                                                    <td>{{vente.article.prixVente}}</td>
+                                                    <td>{{vente.qte}}</td>
+                                                    <td>{{vente.dateVente | date:'dd-MM-yyyy'}}</td>
+                                                    <td>{{vente.total}}</td>
+                                                </tr>
+                                            </ng-template>
+                                            <ng-template pTemplate="emptymessage">
+                                                <tr>
+                                                    <td colspan="6">There are no order for this product yet.</td>
+                                                </tr>
+                                            </ng-template>
+                                        </p-table>
+                                    </div>
                                 </td>
                             </tr>
                         </ng-template>
@@ -113,6 +183,3 @@
     </section>
 </div>
 <!-- /.content-wrapper -->
-=======
-<p>commande works!</p>
->>>>>>> nogaye
