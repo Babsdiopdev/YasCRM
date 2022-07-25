@@ -49,6 +49,32 @@ export class ContactComponent implements OnInit {
     )
   }
 
+  onopenAddContact() {
+    const dialogConfig = new MatDialogConfig();
+    dialogConfig.maxWidth = '800px';
+    dialogConfig.backdropClass = 'bacdrop-modal';
+    dialogConfig.disableClose = true;
+    dialogConfig.position = { top: '10px'};
+    const dialogRef = this.dialog.open(AddContactComponent, dialogConfig);
+    dialogRef.afterClosed().subscribe(() => {
+      this.getAllContacts();
+      this.getStatistiqueOfContact();
+    });
+  }
+
+  openupdateContact(contact: Contact) {
+    const dialogConfig = new MatDialogConfig();
+    dialogConfig.maxWidth = '800px';
+    dialogConfig.backdropClass = 'bacdrop-modal';
+    dialogConfig.disableClose = true;
+    dialogConfig.position = { top: '5px' };
+    dialogConfig.data = { contact: contact}
+    const dialogRef = this.dialog.open(UpdateContactComponent, dialogConfig);
+    dialogRef.afterClosed().subscribe(() => {
+      this.getAllContacts();
+    });
+  }
+
   ondeleteContactById(contact: Contact) {
     Swal.fire({
       icon: 'question',
@@ -77,31 +103,4 @@ export class ContactComponent implements OnInit {
       }
     })
   }
-
-  onopenAddContact() {
-    const dialogConfig = new MatDialogConfig();
-    dialogConfig.maxWidth = '800px';
-    dialogConfig.backdropClass = 'bacdrop-modal';
-    dialogConfig.disableClose = true;
-    dialogConfig.position = { top: '10px'};
-    const dialogRef = this.dialog.open(AddContactComponent, dialogConfig);
-    dialogRef.afterClosed().subscribe(() => {
-      this.getAllContacts();
-      this.getStatistiqueOfContact();
-    });
-  }
-
-  openupdateContact(contact: Contact) {
-    const dialogConfig = new MatDialogConfig();
-    dialogConfig.maxWidth = '800px';
-    dialogConfig.backdropClass = 'bacdrop-modal';
-    dialogConfig.disableClose = true;
-    dialogConfig.position = { top: '5px' };
-    dialogConfig.data = { contact: contact}
-    const dialogRef = this.dialog.open(UpdateContactComponent, dialogConfig);
-    dialogRef.afterClosed().subscribe(() => {
-      this.getAllContacts();
-    });
-  }
-
 }

@@ -7,64 +7,18 @@
                 <div class="col-sm-6">
                     <h6 class="m-0 p-0text-dark">Commande</h6>
                 </div>
-                <div class="col-sm-6" style="text-align: end;">
-                    <span ><a>CRM</a></span> / <span><a>Commande</a></span>
-                </div>
             </div>
         </div>
     </div>
+    <!-- Main content -->
     <section class="content">
         <div class="container-fluid">
             <div class="row">
-                <div class="col-md-4">
-                    <div class="small-box bg-gradient-warning">
-                        <div class="inner">
-                            <h3>test</h3>
-                            <p>Totales Commandes</p>
-                        </div>
-                        <div class="icon">
-                            <i class="fas fa-user-plus"></i>
-                        </div>
-                        <a href="#" class="small-box-footer">
-                            More info <i class="fas fa-arrow-circle-right"></i>
-                        </a>
-                    </div>
-                </div>
-                <div class="col-md-4">
-                    <div class="small-box bg-info">
-                        <div class="inner">
-                            <h3></h3>
-                            <p>Commande en cours</p>
-                        </div>
-                        <div class="icon">
-                            <i class="fas fa-user-plus"></i>
-                        </div>
-                        <a href="#" class="small-box-footer">
-                            More info <i class="fas fa-arrow-circle-right"></i>
-                        </a>
-                    </div>
-                </div>
-                <div class="col-md-4">
-                    <div class="small-box bg-gradient-success">
-                        <div class="inner">
-                            <h3></h3>
-                            <p>Commande annulee
-
-                            </p>
-                        </div>
-                        <div class="icon">
-                            <i class="fas fa-user-plus"></i>
-                        </div>
-                        <a href="#" class="small-box-footer">
-                            More info <i class="fas fa-arrow-circle-right"></i>
-                        </a>
-                    </div>
-                </div>
                 <div class="col-md-12">
                     <p-table #dt1 [value]="commandes" dataKey="id" [rows]="10" [showCurrentPageReport]="true"
                         [rowsPerPageOptions]="[10,25,50]" styleClass="p-datatable-customers p-datatable-gridlines"
-                        [paginator]="true" currentPageReportTemplate="{last} / {totalRecords} Commandes"
-                        [globalFilterFields]="['contact', 'total commande', 'etape commande', 'etat commande']">
+                        [paginator]="true" currentPageReportTemplate="{last} / {totalRecords} contacts"
+                        [globalFilterFields]="['nom', 'prenom', 'telephone', 'pays', 'typeContact', 'email', 'reference', 'civilite', 'fonction']">
                         <ng-template pTemplate="caption">
                             <div class="row">
                                 <div class="col-sm-6 text-left">
@@ -74,12 +28,13 @@
                                     </span>
                                 </div>
                                 <div class="col-sm-6 text-right">
-                                    <button pButton pRipple type="button" label="Nouvelle commande" icon="pi pi-plus" iconPos="right" class="p-button-raised p-button-text"></button>
+                                    <button (click)="onopenAddCommande()" pButton pRipple type="button" label="Nouvelle commande" icon="pi pi-plus" iconPos="right" class="p-button-raised p-button-text"></button>
                                 </div>
                                 </div>
                         </ng-template>
                         <ng-template pTemplate="header">
                             <tr>
+                                <th style="width: 3rem"></th>
                                 <th>
                                     <div class="p-d-flex p-jc-between p-ai-center">
                                         Référence                                 
@@ -92,20 +47,19 @@
                                 </th>
                                 <th>
                                     <div class="p-d-flex p-jc-between p-ai-center">
-                                        Total commande
+                                        Nbre article
                                     </div>
                                 </th>
                                 <th>
                                     <div class="p-d-flex p-jc-between p-ai-center">
-                                        Etape commande
+                                        Total
                                     </div>
                                 </th>
                                 <th>
                                     <div class="p-d-flex p-jc-between p-ai-center">
-                                        Etat commade
+                                        Etat
                                     </div>
                                 </th>
-                                
                                 <th>
                                     <div class="p-d-flex p-jc-between p-ai-center">
                                         Actions
@@ -113,44 +67,115 @@
                                 </th>
                             </tr>
                         </ng-template>
-                        <ng-template pTemplate="body" let-contact>
+                        <ng-template pTemplate="body" let-commande let-expanded="expanded">
                             <tr>
                                 <td>
-                                   
+                                    <button type="button" pButton pRipple [pRowToggler]="commande" class="p-button-text p-button-rounded p-button-plain" [icon]="expanded ? 'pi pi-chevron-down' : 'pi pi-chevron-right'"></button>
+                                </td>
+                                <td>
+                                    {{commande.reference}}
+                                </td>
+                                <td>
+                                    {{commande.contact.prenom}} {{commande.contact.nom}}
+                                </td>
+                                <td>
+                                    {{commande.ventes.length}}
+                                </td>
+                                <td>
+                                    {{commande.totalCommande}}
                                 </td>
                                 <td>
                                    
+                                    <p-message [severity]="getColor(commande.etat)" text=" {{commande.etat | formatEnum}}"></p-message>
                                 </td>
-                                <td>
-                                   
-                                </td>
-                                <td>
-                                   
-                                </td>
-                                <td>
-                                   
-                                </td>
-                               
                                 <td>
                                     <button mat-icon-button [matMenuTriggerFor]="menu" aria-label="Example icon-button with a menu">
                                         <mat-icon>more_vert</mat-icon>
                                     </button>
                                     <mat-menu #menu="matMenu" id="matMenu">
-                                        <button mat-menu-item class="buttonMenu">
+                                        <button mat-menu-item class="buttonMenu" (click)="openupdateCommande(commande)">
                                             <span>Modifier</span>
                                             <mat-icon>edit</mat-icon>
                                         </button>
-                                        <button mat-menu-item class="buttonMenu">
+                                        <button mat-menu-item class="buttonMenu" (click)="ondeleteCommandeById(commande)">
                                             <span>Supprimer</span>
                                             <mat-icon>delete_forever</mat-icon>
+                                        </button>
+
+                                        <p-divider></p-divider>
+
+                                        <button mat-menu-item *ngIf="commande.etat === 'EN_COURS'" class="buttonMenu" (click)="onvalidateCommande(commande)">
+                                            <span>Valider</span>
+                                            <mat-icon>check_circle</mat-icon>
+                                        </button>
+                                        <button mat-menu-item *ngIf="commande.etat === 'EN_COURS'" class="buttonMenu" (click)="onCancelCommande(commande)">
+                                            <span>Annuler</span>
+                                            <mat-icon>cancel</mat-icon>
+                                        </button>
+                                        <button mat-menu-item *ngIf="commande.etat === 'VALIDE'" class="buttonMenu" (click)="ongenerateFacture(commande)">
+                                            <span>Génerer facture</span>
+                                            <mat-icon>cached</mat-icon>
                                         </button>
                                     </mat-menu>
                                 </td>
                             </tr>
                         </ng-template>
+                        <ng-template pTemplate="rowexpansion" let-commande>
+                            <tr>
+                                <td colspan="7">
+                                    <div class="p-3">
+                                        <p-table [value]="commande.ventes" dataKey="id">
+                                            <ng-template pTemplate="header">
+                                                <tr>
+                                                    <th>
+                                                        <div class="p-d-flex p-jc-between p-ai-center">
+                                                            Libellé                                
+                                                        </div>
+                                                    </th>
+                                                    <th>
+                                                        <div class="p-d-flex p-jc-between p-ai-center">
+                                                            Prix unitaire                                 
+                                                        </div>
+                                                    </th>
+                                                    <th>
+                                                        <div class="p-d-flex p-jc-between p-ai-center">
+                                                            Qté                               
+                                                        </div>
+                                                    </th>
+                                                    <th>
+                                                        <div class="p-d-flex p-jc-between p-ai-center">
+                                                            Date                              
+                                                        </div>
+                                                    </th>
+                                                    <th>
+                                                        <div class="p-d-flex p-jc-between p-ai-center">
+                                                            Total                                 
+                                                        </div>
+                                                    </th>
+                                                </tr>
+                                            </ng-template>
+                                            <ng-template pTemplate="body" let-vente>
+                                                <tr>
+                                                    <td>{{vente.article.libelle}}</td>
+                                                    <td>{{vente.article.prixVente}}</td>
+                                                    <td>{{vente.qte}}</td>
+                                                    <td>{{vente.dateVente | date:'dd-MM-yyyy'}}</td>
+                                                    <td>{{vente.total}}</td>
+                                                </tr>
+                                            </ng-template>
+                                            <ng-template pTemplate="emptymessage">
+                                                <tr>
+                                                    <td colspan="6">There are no order for this product yet.</td>
+                                                </tr>
+                                            </ng-template>
+                                        </p-table>
+                                    </div>
+                                </td>
+                            </tr>
+                        </ng-template>
                         <ng-template pTemplate="emptymessage">
                             <tr>
-                                <td colspan="12"></td>
+                                <td colspan="12">{{commandeResponse?.message}}</td>
                             </tr>
                         </ng-template>
                     </p-table>
@@ -159,3 +184,4 @@
         </div>
     </section>
 </div>
+<!-- /.content-wrapper -->

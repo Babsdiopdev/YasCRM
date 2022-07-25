@@ -14,26 +14,27 @@ export class ContactService {
 
   constructor(
     private httpClient: HttpClient,
-    private fb: FormBuilder) { }
+    private fb: FormBuilder
+  ) { }
 
   getAllContacts(): Observable<any> {
-    return this.httpClient.get<any>(`${this.host}/getAllContacts`);
+    return this.httpClient.get<any>(`${this.host}/contacts/getAllContacts`);
   }
 
   getStatistiquesofContact(): Observable<any> {
-    return this.httpClient.get<any>(`${this.host}/statistiques`)
+    return this.httpClient.get<any>(`${this.host}/contacts/statistiques`)
   }
 
   deleContactById(id: number): Observable<any> {
-    return this.httpClient.delete<any>(`${this.host}/deleteContactById/${id}`);
+    return this.httpClient.delete<any>(`${this.host}/contacts/deleteContactById/${id}`);
   }
 
   saveContact(contact: Contact): Observable<any> {
-    return this.httpClient.post<any>(`${this.host}/saveContact`, contact);
+    return this.httpClient.post<any>(`${this.host}/contacts/saveContact`, contact);
   }
 
   updateConactById(id: number, contact: Contact): Observable<any> {
-    return this.httpClient.put<any>(`${this.host}/updateContactById/${id}`, contact);
+    return this.httpClient.put<any>(`${this.host}/contacts/updateContactById/${id}`, contact);
   }
 
   /**

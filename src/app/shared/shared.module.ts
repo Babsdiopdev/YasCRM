@@ -10,14 +10,12 @@ import { PrimengModule } from '../ui/primeng.module';
 import { HttpClientModule } from '@angular/common/http';
 import { ReactiveFormsModule } from '@angular/forms';
 
-
-   
 @NgModule({
   declarations: [
     HeaderComponent,
     FooterComponent,
     SidebarComponent,
-    FullComponent
+    FullComponent,
   ],
   imports: [
     CommonModule,
@@ -29,7 +27,7 @@ import { ReactiveFormsModule } from '@angular/forms';
     PrimengModule,
     MaterielModule,
     HttpClientModule,
-    ReactiveFormsModule
+    ReactiveFormsModule,
   ]
 })
 export class SharedModule { }

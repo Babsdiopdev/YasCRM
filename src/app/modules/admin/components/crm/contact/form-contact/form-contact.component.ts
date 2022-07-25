@@ -22,7 +22,7 @@ export class FormContactComponent implements OnInit {
 
   contactForm!: FormGroup;
 
-   constructor(
+  constructor(
     private fb: FormBuilder,
     private contactService: ContactService,
     private dialog: MatDialog
@@ -46,15 +46,31 @@ export class FormContactComponent implements OnInit {
       });
     } else if(this.typeOperation === 'update') {
       this.contactForm = this.contactService.createContactForm();
+
+      let civilite = {};
+      let typeContact = {};
+
+      this.civiliteOptions.forEach(c => {
+        if(c.value === this.contact.civilite) {
+          civilite = c;
+        }
+      });
+
+      this.typeOptions.forEach(t => {
+        if(t.value === this.contact.typeContact) {
+          typeContact = t;
+        }
+      });
+
       //this.contactForm.setValue(this.contact);
       this.contactForm.get('nom')?.setValue(this.contact.nom);
       this.contactForm.get('prenom')?.setValue(this.contact.prenom);
       this.contactForm.get('telephone')?.setValue(this.contact.telephone);
       this.contactForm.get('email')?.setValue(this.contact.email);
-      //this.contactForm.get('civilite')?.setValue(this.contact.civilite);
       this.contactForm.get('pays')?.setValue(this.contact.pays);
       this.contactForm.get('fonction')?.setValue(this.contact.fonction);
-      //this.contactForm.get('typeContact')?.setValue(this.contact.typeContact);
+      this.contactForm.get('civilite')?.setValue(civilite);
+      this.contactForm.get('typeContact')?.setValue(typeContact);
     }
     
   }

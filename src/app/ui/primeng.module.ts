@@ -5,7 +5,13 @@ import {TableModule} from 'primeng/table';
 import {DropdownModule} from 'primeng/dropdown';
 import {InputTextModule} from 'primeng/inputtext';
 import {ButtonModule} from 'primeng/button';
-
+import {InputNumberModule} from 'primeng/inputnumber';
+import {MessagesModule} from 'primeng/messages';
+import {MessageModule} from 'primeng/message';
+import {PanelModule} from 'primeng/panel';
+import {MultiSelectModule} from 'primeng/multiselect';
+import {DividerModule} from 'primeng/divider';
+import { AccordionModule } from 'primeng/accordion';
 
 
 @NgModule({
@@ -17,7 +23,14 @@ import {ButtonModule} from 'primeng/button';
     TableModule,
     DropdownModule,
     InputTextModule,
-    ButtonModule
+    ButtonModule,
+    InputNumberModule,
+    MessagesModule,
+    MessageModule,
+    PanelModule,
+    MultiSelectModule,
+    DividerModule,
+    AccordionModule
   ]
 })
 export class PrimengModule { }

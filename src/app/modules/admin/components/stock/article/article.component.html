@@ -1,0 +1,153 @@
+<!-- Content Wrapper.-->
+<div class="content-wrapper">
+    <!-- Content Header -->
+    <div class="content-header">
+        <div class="container-fluid">
+            <div class="row mb-2">
+                <div class="col-sm-6">
+                    <h6 class="m-0 p-0text-dark">Articles</h6>
+                </div>
+                <div class="col-sm-6" style="text-align: end;">
+                    <span><a>Stock</a></span> / <span><a>Article</a></span>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- Main content -->
+    <section class="content">
+        <div class="container-fluid">
+            <div class="row">
+                <div class="col-md-6">
+                    <div class="small-box bg-info">
+                        <div class="inner">
+                            <h3>20</h3>
+                            <p>Achats</p>
+                        </div>
+                        <div class="icon">
+                            <i class="fas fa-user-plus"></i>
+                        </div>
+                        <a href="#" class="small-box-footer">
+                            More info <i class="fas fa-arrow-circle-right"></i>
+                        </a>
+                    </div>
+                </div>
+                <div class="col-md-6">
+                    <div class="small-box bg-gradient-success">
+                        <div class="inner">
+                            <h3>50</h3>
+                            <p>Ventes</p>
+                        </div>
+                        <div class="icon">
+                            <i class="fas fa-user-plus"></i>
+                        </div>
+                        <a href="#" class="small-box-footer">
+                            More info <i class="fas fa-arrow-circle-right"></i>
+                        </a>
+                    </div>
+                </div>
+                <div class="col-md-12">
+                    <p-table #dt1 [value]="articles" dataKey="id" [rows]="10" [showCurrentPageReport]="true"
+                        [rowsPerPageOptions]="[10,25,50]" styleClass="p-datatable-customers p-datatable-gridlines"
+                        [paginator]="true" currentPageReportTemplate="{last} / {totalRecords} contacts"
+                        [globalFilterFields]="['reference', 'libelle', 'prixUnitaire', 'tva', 'etat', 'qte']">
+                        <ng-template pTemplate="caption">
+                            <div class="row">
+                                <div class="col-sm-6 text-left">
+                                    <span class="p-input-icon-right p-ml-auto">
+                                        <i class="pi pi-search"></i>
+                                        <input pInputText type="text" (input)="applyFilterGlobal($event, 'contains')" placeholder="mot clé" />
+                                    </span>
+                                </div>
+                                <div class="col-sm-6 text-right">
+                                    <button (click)="onopenAddArticle()" pButton pRipple type="button" label="Nouvel article" icon="pi pi-plus" iconPos="right" class="p-button-raised p-button-text"></button>
+                                </div>
+                                </div>
+                        </ng-template>
+                        <ng-template pTemplate="header">
+                            <tr>
+                                <th>
+                                    <div class="p-d-flex p-jc-between p-ai-center">
+                                        Référence                                 
+                                    </div>
+                                </th>
+                                <th>
+                                    <div class="p-d-flex p-jc-between p-ai-center">
+                                        Libellé
+                                    </div>
+                                </th>
+                                <th>
+                                    <div class="p-d-flex p-jc-between p-ai-center">
+                                        Prix vente
+                                    </div>
+                                </th>
+                                <th>
+                                    <div class="p-d-flex p-jc-between p-ai-center">
+                                        TVA
+                                    </div>
+                                </th>
+                                <th>
+                                    <div class="p-d-flex p-jc-between p-ai-center">
+                                        Etat
+                                    </div>
+                                </th>
+                                <th>
+                                    <div class="p-d-flex p-jc-between p-ai-center">
+                                        Qté
+                                    </div>
+                                </th>
+                                <th>
+                                    <div class="p-d-flex p-jc-between p-ai-center">
+                                        Actions
+                                    </div>
+                                </th>
+                            </tr>
+                        </ng-template>
+                        <ng-template pTemplate="body" let-article>
+                            <tr>
+                                <td>
+                                    {{article.reference}}
+                                </td>
+                                <td>
+                                    {{article.libelle}}
+                                </td>
+                                <td>
+                                    {{article.prixVente}}
+                                </td>
+                                <td>
+                                    {{article.tva}}%
+                                </td>
+                                <td style="text-align: center;">
+                                    <p-message [severity]="(article.etat === 'DISPONIBLE') ? 'success' : 'warn'" text="{{article.etat}}"></p-message>
+                                </td>
+                                <td>
+                                    {{article.qte}}
+                                </td>
+                                <td>
+                                    <button mat-icon-button [matMenuTriggerFor]="menu" aria-label="Example icon-button with a menu">
+                                        <mat-icon>more_vert</mat-icon>
+                                    </button>
+                                    <mat-menu #menu="matMenu" id="matMenu">
+                                        <button mat-menu-item class="buttonMenu" (click)="onopenUpdateArticle(article)">
+                                            <span>Modifier</span>
+                                            <mat-icon>edit</mat-icon>
+                                        </button>
+                                        <button mat-menu-item class="buttonMenu" (click)="ondeleteArticleById(article)">
+                                            <span>Supprimer</span>
+                                            <mat-icon>delete_forever</mat-icon>
+                                        </button>
+                                    </mat-menu>
+                                </td>
+                            </tr>
+                        </ng-template>
+                        <ng-template pTemplate="emptymessage">
+                            <tr>
+                                <td colspan="12">{{articleResponse?.message}}</td>
+                            </tr>
+                        </ng-template>
+                    </p-table>
+                </div>
+            </div>
+        </div>
+    </section>
+</div>
+<!-- /.content-wrapper -->

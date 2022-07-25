@@ -1,0 +1,35 @@
+<div class="header">
+    <h1 mat-dialog-title>{{title}}</h1>
+    <button mat-dialog-close pButton pRipple type="button" icon="pi pi-times" class="p-button-rounded p-button-danger p-button-outlined"></button>
+</div>
+<mat-dialog-content>
+    <form [formGroup]="articleForm" #form>
+        <div class="row mt-2" >
+            <div class="col-sm-12">
+                <div class="form-group">
+                    <input type="text" pInputText class="col-12" placeholder="Libelle" formControlName="libelle">
+                </div>
+            </div>
+            <div class="col-md-6 col-sm-12">
+                <div class="form-group">
+                    <p-inputNumber [size]="41"  placeholder="Prix vente" mode="currency" currency="CFA" locale="CFA" formControlName="prixVente"></p-inputNumber>
+                </div>
+            </div>
+            <div class="col-md-6 col-sm-12">
+                <div class="form-group">
+                    <p-dropdown [options]="etatOptions" 
+                        optionLabel="value" 
+                        placeholder="etat" 
+                        [style]="{'width': '100%'}" 
+                        [appendTo]="form" formControlName="etat"
+                        >
+                    </p-dropdown>
+                </div>
+            </div>
+        </div>  
+    </form>
+</mat-dialog-content>
+<mat-dialog-actions align="end">
+    <button mat-dialog-close pButton pRipple type="button" label="Annuler" icon="pi pi-times" iconPos="right" class="p-button-text p-button-danger mr-2"></button>
+    <button  [disabled]="!articleForm.valid" (click)="onsaveArticle()"pButton pRipple type="button" [label]="buttonLabel" icon="pi pi-check" iconPos="right" class="p-button-text"></button>
+</mat-dialog-actions>
