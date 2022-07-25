@@ -10,9 +10,6 @@ import { AddContactComponent } from './components/crm/contact/add-contact/add-co
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { FormContactComponent } from './components/crm/contact/form-contact/form-contact.component';
 import { UpdateContactComponent } from './components/crm/contact/update-contact/update-contact.component';
-<<<<<<< HEAD
-import { CommandeComponent } from './components/crm/commande/commande.component';
-=======
 import { ArticleComponent } from './components/stock/article/article.component';
 import { AddArticleComponent } from './components/stock/article/add-article/add-article.component';
 import { UpdateArticleComponent } from './components/stock/article/update-article/update-article.component';
@@ -25,7 +22,6 @@ import { DevisComponent } from './components/crm/devis/devis.component';
 import { AppDevisComponent } from './components/crm/devis/app-devis/app-devis.component';
 import { UpdateDevisComponent } from './components/crm/devis/update-devis/update-devis.component';
 import { FormCommandeComponent } from './components/crm/commande/form-commande/form-commande.component';
->>>>>>> a648466a0ca77188e2c440b3aef4c83d33e28874
 
 @NgModule({
   declarations: [

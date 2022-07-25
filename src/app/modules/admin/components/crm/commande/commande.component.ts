@@ -1,9 +1,3 @@
-<<<<<<< HEAD
-import { Component, OnInit } from '@angular/core';
-import { commande } from 'src/app/models/commande.model';
-import { CommandeService } from 'src/app/services/commande.service';
-
-=======
 import { Component, OnInit, ViewChild } from '@angular/core';
 import { MatDialog, MatDialogConfig } from '@angular/material/dialog';
 import { Table } from 'primeng/table';
@@ -12,7 +6,6 @@ import { CommandeService } from 'src/app/services/commande.service';
 import Swal from 'sweetalert2';
 import { AddCommandeComponent } from './add-commande/add-commande.component';
 import { UpdateCommandeComponent } from './update-commande/update-commande.component';
->>>>>>> a648466a0ca77188e2c440b3aef4c83d33e28874
 
 @Component({
   selector: 'app-commande',
@@ -20,18 +13,6 @@ import { UpdateCommandeComponent } from './update-commande/update-commande.compo
   styleUrls: ['./commande.component.scss']
 })
 export class CommandeComponent implements OnInit {
-<<<<<<< HEAD
-  commandeResponse:any;
-  commandes:commande[]=[]
-  dt1: any;
-
-  constructor(
-    commandeService:CommandeService
-  ) { }
-
-  ngOnInit(): void {
-  }
-=======
 
   @ViewChild('dt1 ') dt1: Table | undefined;
 
@@ -48,14 +29,9 @@ export class CommandeComponent implements OnInit {
     
   }
 
->>>>>>> a648466a0ca77188e2c440b3aef4c83d33e28874
   applyFilterGlobal($event: any, stringVal: any) {
     this.dt1?.filterGlobal(($event.target as HTMLInputElement).value, stringVal);
   }
-
-<<<<<<< HEAD
-}
-=======
   getOnlyCommande() {
     this.commandeService.getOnlyCommandes().subscribe(
       (response) => {
@@ -64,7 +40,6 @@ export class CommandeComponent implements OnInit {
       }
     );
   }
-
   onopenAddCommande() {
     const dialogConfig = new MatDialogConfig();
     dialogConfig.width = '800px';
@@ -92,4 +67,3 @@ export class CommandeComponent implements OnInit {
 
   ondeleteCommandeById(commande: Commande) {}
 }
->>>>>>> a648466a0ca77188e2c440b3aef4c83d33e28874
