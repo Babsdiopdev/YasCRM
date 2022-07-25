@@ -1,9 +1,10 @@
 import { Component, OnInit, ViewChild } from '@angular/core';
 import { Table } from 'primeng/table';
 import { Rv } from 'src/app/models/rv.model';
-import { RvService } from 'src/app/serices/rv.service';
+import { RvService } from 'src/app/services/rv.service';
 import { MatDialog, MatDialogConfig } from '@angular/material/dialog';
 import { AddRVComponent } from './add-rv/add-rv.component';
+import { UpdateRvComponent } from './update-rv/update-rv.component';
 
 @Component({
   selector: 'app-rv',
@@ -57,8 +58,21 @@ export class RvComponent implements OnInit {
       result => {
         this.getAllRvs();}
     )
+}
 
-  }
+UpdateRv(rv:Rv){
+  const dialogConfig = new MatDialogConfig();
+  dialogConfig.width = '720px';
+  dialogConfig.height = '600';
+  dialogConfig.backdropClass = 'bacdrop-modal';
+  dialogConfig.disableClose = true;
+  dialogConfig.data = {'rv':rv};
+  this.dialog.open(UpdateRvComponent, dialogConfig)
+  .afterClosed().subscribe(
+    result => {
+      this.getAllRvs();}
+  )
+}
 
   }
 

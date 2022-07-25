@@ -1,1 +1,112 @@
-<p>commande works!</p>
+<!-- Content Wrapper.-->
+<div class="content-wrapper">
+    <!-- Content Header -->
+    <div class="content-header">
+        <div class="container-fluid">
+            <div class="row mb-2">
+                <div class="col-sm-6">
+                    <h6 class="m-0 p-0text-dark">Commande</h6>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- Main content -->
+    <section class="content">
+        <div class="container-fluid">
+            <div class="row">
+                <div class="col-md-12">
+                    <p-table #dt1 [value]="commandes" dataKey="id" [rows]="10" [showCurrentPageReport]="true" [rowsPerPageOptions]="[10,25,50]" styleClass="p-datatable-customers p-datatable-gridlines" [paginator]="true" currentPageReportTemplate="{last} / {totalRecords} contacts"
+                        [globalFilterFields]="['nom', 'prenom', 'telephone', 'pays', 'typeContact', 'email', 'reference', 'civilite', 'fonction']">
+                        <ng-template pTemplate="caption">
+                            <div class="row">
+                                <div class="col-sm-6 text-left">
+                                    <span class="p-input-icon-right p-ml-auto">
+                                        <i class="pi pi-search"></i>
+                                        <input pInputText type="text" (input)="applyFilterGlobal($event, 'contains')" placeholder="mot clé" />
+                                    </span>
+                                </div>
+                                <div class="col-sm-6 text-right">
+                                    <button (click)="onopenAddCommande()" pButton pRipple type="button" label="Nouvelle commande" icon="pi pi-plus" iconPos="right" class="p-button-raised p-button-text"></button>
+                                </div>
+                            </div>
+                        </ng-template>
+                        <ng-template pTemplate="header">
+                            <tr>
+                                <th>
+                                    <div class="p-d-flex p-jc-between p-ai-center">
+                                        Référence
+                                    </div>
+                                </th>
+                                <th>
+                                    <div class="p-d-flex p-jc-between p-ai-center">
+                                        Contact
+                                    </div>
+                                </th>
+                                <th>
+                                    <div class="p-d-flex p-jc-between p-ai-center">
+                                        Nbre article
+                                    </div>
+                                </th>
+                                <th>
+                                    <div class="p-d-flex p-jc-between p-ai-center">
+                                        Total
+                                    </div>
+                                </th>
+                                <th>
+                                    <div class="p-d-flex p-jc-between p-ai-center">
+                                        Etat
+                                    </div>
+                                </th>
+                                <th>
+                                    <div class="p-d-flex p-jc-between p-ai-center">
+                                        Actions
+                                    </div>
+                                </th>
+                            </tr>
+                        </ng-template>
+                        <ng-template pTemplate="body" let-commande>
+                            <tr>
+                                <td>
+                                    {{commande.reference}}
+                                </td>
+                                <td>
+                                    {{commande.contact.prenom}} {{commande.contact.nom}}
+                                </td>
+                                <td>
+                                    {{commande.ventes.length}}
+                                </td>
+                                <td>
+                                    {{commande.totalCommande}}
+                                </td>
+                                <td>
+                                    {{commande.etat}}
+                                </td>
+                                <td>
+                                    <button mat-icon-button [matMenuTriggerFor]="menu" aria-label="Example icon-button with a menu">
+                                        <mat-icon>more_vert</mat-icon>
+                                    </button>
+                                    <mat-menu #menu="matMenu" id="matMenu">
+                                        <button mat-menu-item class="buttonMenu" (click)="openupdateCommande(commande)">
+                                            <span>Modifier</span>
+                                            <mat-icon>edit</mat-icon>
+                                        </button>
+                                        <button mat-menu-item class="buttonMenu" (click)="ondeleteCommandeById(commande)">
+                                            <span>Supprimer</span>
+                                            <mat-icon>delete_forever</mat-icon>
+                                        </button>
+                                    </mat-menu>
+                                </td>
+                            </tr>
+                        </ng-template>
+                        <ng-template pTemplate="emptymessage">
+                            <tr>
+                                <td colspan="12">{{commandeResponse?.message}}</td>
+                            </tr>
+                        </ng-template>
+                    </p-table>
+                </div>
+            </div>
+        </div>
+    </section>
+</div>
+<!-- /.content-wrapper -->

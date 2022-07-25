@@ -6,6 +6,11 @@ import { SidebarComponent } from './sidebar/sidebar.component';
 import { FullComponent } from './full/full.component';
 import { AppRoutingModule } from '../app-routing.module';
 import { MaterielModule } from '../ui/materiel.module';
+import { PrimengModule } from '../ui/primeng.module';
+import { HttpClientModule } from '@angular/common/http';
+import { ReactiveFormsModule } from '@angular/forms';
+
+
 
 
 
@@ -19,9 +24,18 @@ import { MaterielModule } from '../ui/materiel.module';
   imports: [
     CommonModule,
     AppRoutingModule,
-    MaterielModule
+    PrimengModule,
+    MaterielModule,
   ],
-  exports: [  FullComponent,
-    FooterComponent,]
+
+  exports: [
+    PrimengModule,
+    MaterielModule,
+    HttpClientModule,
+    ReactiveFormsModule,
+    FullComponent,
+    FooterComponent,
+  ]
+
 })
 export class SharedModule { }

@@ -8,6 +8,9 @@ import { PrimengModule } from './ui/primeng.module';
 import { SharedModule } from './shared/shared.module';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { HttpClientModule } from '@angular/common/http';
+import { ReactiveFormsModule } from '@angular/forms';
+
+
 
 
 @NgModule({
@@ -21,8 +24,8 @@ import { HttpClientModule } from '@angular/common/http';
     PrimengModule,
     SharedModule,
     BrowserAnimationsModule,
-    HttpClientModule
-
+    HttpClientModule,
+    ReactiveFormsModule
   ],
   providers: [],
   bootstrap: [AppComponent]

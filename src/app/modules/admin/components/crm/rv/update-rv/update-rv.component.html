@@ -1,0 +1,58 @@
+<section id="container" class="row">
+
+    <div id="head" class="col-12 m-0 mb-3 p-0">
+        <legend>Modifier Rv</legend>
+        <em class="pi pi-times" mat-dialog-close></em>
+    </div>
+    {{data|json}}
+    <div class="row m-0 mt-4">
+        <div class="col-md-6 col-sm-12">
+            <label class="col-12 p-0" for="titre">Titre</label>
+            <input class="col-12" type="text" [(ngModel)]="data.rv.titre" name="titre" placeholder="titre" pInputText/>
+        </div>
+        <div class="col-md-6 col-sm-12">
+            <label class="col-12 p-0" for="lieu">Lieu</label>
+            <input class="col-12" type="text" [(ngModel)]="data.rv.lieu" name="lieu" placeholder="Lieu" pInputText />
+        </div>
+
+        <div class="col-md-6 col-sm-12">
+            <label>Contact</label>
+            <p-dropdown [options]="contacts" optionLabel="prenom" placeholder="Contact" [style]="{'width': '100%'}" ngModel="contactId" name="contactId"></p-dropdown>
+        </div>
+
+        <div class="col-md-6 col-sm-12">
+            <label class="col-12 p-0" for="civilité">Date de début</label>
+            <input class="col-12" type="Date" [(ngModel)]="data.rv.date_debut" name="date_debut" placeholder="date de début" pInputText />
+        </div>
+        <div class="col-md-6 col-sm-12">
+            <label class="col-12 p-0" for="date_fin">Date de fin</label>
+            <input class="col-12" type="Date" [(ngModel)]="data.rv.date_fin" name="date_fin" placeholder="date_fin" pInputText />
+        </div>
+        <div class="col-md-6 col-sm-12">
+            <label class="col-12 p-0" for="heure_debut">Heure de début</label>
+            <input class="col-12" type="time" [(ngModel)]="data.rv.heure_debut" name="heure_debut" placeholder="Heure de début" pInputText />
+        </div>
+        <div class="col-md-6 col-sm-12">
+            <label class="col-12 p-0" for="adresse">Heure de fin</label>
+            <input class="col-12" type="time" [(ngModel)]="data.rv.heure_fin" name="heure_fin" placeholder="Heure de fin" pInputText />
+        </div>
+
+        <div class="col-md-6 col-sm-12">
+            <label>Responsables</label>
+            <p-dropdown [options]="employes" optionLabel="prenom" placeholder="Responsables" [style]="{'width': '100%'}" [(ngModel)]="data.rv.employeId" name="employeId"></p-dropdown>
+        </div>
+
+        <div class="col-12">
+            <div class="form-group mb-0">
+                <textarea rows="5" class="form-control" [(ngModel)]="data.rv.description" name="description" placeholder="Description"></textarea>
+            </div>
+        </div>
+    </div>
+
+    <div style="float: right; margin-top:20px">
+        <button type="button" id="addContact" mat-button mat-dialog-close class="alert alert-danger">Annuler</button>
+        <button mat-button id="button" (click)="onModifierRv(rv,addForm)" type="submit" class="alert alert-primary ml-3">Enrigistrer</button>
+    </div>
+
+
+</section>

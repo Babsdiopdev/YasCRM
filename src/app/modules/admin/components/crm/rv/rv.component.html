@@ -100,10 +100,10 @@
                                     {{rv.lieu}}
                                 </td>
                                 <td>
-                                    CONTACTS
+                                    {{rv.contact.prenom}} {{rv.contact.nom}}
                                 </td>
                                 <td>
-                                    RESONSABLES
+                                    {{rv.employe.prenom}} {{rv.employe.nom}}
                                 </td>
 
 
@@ -115,7 +115,7 @@
                                   <mat-icon>more_vert</mat-icon>
                               </button>
                                     <mat-menu #menu="matMenu" id="matMenu">
-                                        <button mat-menu-item class="buttonMenu">
+                                        <button mat-menu-item class="buttonMenu" (click)="UpdateRv(rv)">
                                       <span>Modifier</span>
                                       <mat-icon>edit</mat-icon>
                                   </button>

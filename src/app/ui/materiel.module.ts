@@ -16,6 +16,7 @@ import {MatDialogModule} from '@angular/material/dialog';
     MatMenuModule,
     MatButtonModule,
     MatDialogModule
+
   ]
 })
 export class MaterielModule { }

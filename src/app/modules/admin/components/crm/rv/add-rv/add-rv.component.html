@@ -1,4 +1,5 @@
 <section id="container" class="row">
+
     <form #addForm="ngForm" (ngSubmit)="onAddRv(addForm)">
         <div id="head" class="col-12 m-0 mb-3 p-0">
             <legend>Nouveau Rv</legend>
@@ -13,6 +14,12 @@
                 <label class="col-12 p-0" for="lieu">Lieu</label>
                 <input class="col-12" type="text" ngModel name="lieu" placeholder="Lieu" pInputText />
             </div>
+
+            <div class="col-md-6 col-sm-12">
+                <label>Contact</label>
+                <p-dropdown [options]="contacts" optionLabel="prenom" placeholder="Contact" [style]="{'width': '100%'}" ngModel="contactId" name="contactId"></p-dropdown>
+            </div>
+
             <div class="col-md-6 col-sm-12">
                 <label class="col-12 p-0" for="civilité">Date de début</label>
                 <input class="col-12" type="Date" ngModel name="date_debut" placeholder="date de début" pInputText />
@@ -29,15 +36,12 @@
                 <label class="col-12 p-0" for="adresse">Heure de fin</label>
                 <input class="col-12" type="time" ngModel name="heure_fin" placeholder="Heure de fin" pInputText />
             </div>
-            <div class="col-md-12">
 
-                <!-- <select aria-label="types entrepots" ngModel name="Responsable" class="col-12 mb-2" pInputText value="types entrepots">
-    <option value=""></option>
-   <option value="">Célibataire</option>
-   <option value="">Marié</option>
- </select> -->
-                <p-dropdown [options]="cities" [(ngModel)]="selectedCity" optionLabel="name" placeholder="responsable" size="100%"></p-dropdown>
+            <div class="col-md-6 col-sm-12">
+                <label>Responsables</label>
+                <p-dropdown [options]="employes" optionLabel="prenom" placeholder="Responsables" [style]="{'width': '100%'}" ngModel="employeId" name="employeId"></p-dropdown>
             </div>
+
             <div class="col-12">
                 <div class="form-group mb-0">
                     <textarea rows="5" class="form-control" placeholder="Description"></textarea>

@@ -19,7 +19,7 @@
         <nav class="mt-2">
             <ul class="nav nav-pills nav-sidebar flex-column" data-widget="treeview" role="menu">
                 <li class="nav-item menu-open">
-                    <a class="nav-link active">
+                    <a class="nav-link" routerLinkActive="active">
                         <mat-icon [style]="{'vertical-align': 'middle'}">badge</mat-icon>
                         <p>
                             CRM & Ventes
@@ -28,33 +28,94 @@
                     </a>
                     <ul class="nav nav-treeview">
                         <li class="nav-item">
-                            <a class="nav-link active">
+                            <a class="nav-link" routerLink="admin/contact">
                                 <i class="far fa-circle nav-icon"></i>
-                                <p>Active Page</p>
+                                <p>Contact</p>
                             </a>
                         </li>
                         <li class="nav-item">
-                            <a class="nav-link" routerLink="/admin/components/commande">
+                            <a class="nav-link" routerLink="admin/commande">
                                 <i class="far fa-circle nav-icon"></i>
-                                <p>Commandes</p>
+                                <p>Commande</p>
+                            </a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" routerLink="admin/rendezVous">
+                                <i class="far fa-circle nav-icon"></i>
+                                <p>Rendez Vous</p>
+                            </a>
+                        </li>
+                    </ul>
+                </li>
+                <li class="nav-item menu-open">
+                    <a class="nav-link" routerLinkActive="active">
+                        <mat-icon [style]="{'vertical-align': 'middle'}">badge</mat-icon>
+                        <p>
+                            Stock
+                            <i class="right fas fa-angle-left"></i>
+                        </p>
+                    </a>
+                    <ul class="nav nav-treeview">
+                        <li class="nav-item">
+                            <a class="nav-link active" routerLink="admin/article">
+                                <i class="far fa-circle nav-icon"></i>
+                                <p>Articles</p>
                             </a>
                         </li>
                     </ul>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link">
-                        <i class="nav-icon fas fa-th"></i>
-                        <p>
-                            Simple Link
-                            <span class="right badge badge-danger">New</span>
-                        </p>
+                    <a class="nav-link" routerLink="admin/configuration">
+                        <i class="far fa-circle nav-icon"></i>
+                        <p>Configuration</p>
                     </a>
                 </li>
             </ul>
         </nav>
-
-
         <!-- /.sidebar-menu -->
     </div>
     <!-- /.sidebar -->
 </aside>
+
+<!-- Sidebar Menu -->
+<!-- <nav class="mt-2">
+    <ul class="nav nav-pills nav-sidebar flex-column" data-widget="treeview" role="menu">
+        <li class="nav-item menu-open">
+            <a class="nav-link active">
+                <mat-icon [style]="{'vertical-align': 'middle'}">badge</mat-icon>
+                <p>
+                    CRM & Ventes
+                    <i class="right fas fa-angle-left"></i>
+                </p>
+            </a>
+            <ul class="nav nav-treeview">
+                <li class="nav-item">
+                    <a class="nav-link active">
+                        <i class="far fa-circle nav-icon"></i>
+                        <p>Active Page</p>
+                    </a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" routerLink="/admin/components/commande">
+                        <i class="far fa-circle nav-icon"></i>
+                        <p>Commandes</p>
+                    </a>
+                </li>
+            </ul>
+        </li>
+        <li class="nav-item">
+            <a class="nav-link">
+                <i class="nav-icon fas fa-th"></i>
+                <p>
+                    Simple Link
+                    <span class="right badge badge-danger">New</span>
+                </p>
+            </a>
+        </li>
+    </ul>
+</nav> -->
+
+
+<!-- /.sidebar-menu -->
+
+<!-- /.sidebar -->

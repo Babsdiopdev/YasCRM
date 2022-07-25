@@ -1,3 +1,6 @@
+import { Contact } from "./contact.model"
+import { Employe } from "./employe.model"
+
 export interface Rv{
    id: number
  reference:string
@@ -6,8 +9,10 @@ export interface Rv{
   date_fin: Date
   heure_debut: string
   heure_fin: string
- responsable: string
- collegues: string
+// responsable: string
+ //collegues: string
+ contact?: Contact,
+ employe?: Employe,
  description: string
  lieu: string
 }
