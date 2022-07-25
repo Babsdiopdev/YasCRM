@@ -10,20 +10,20 @@
                     <input type="text" pInputText class="col-12" placeholder="Libelle" formControlName="libelle">
                 </div>
             </div>
-            <div class="col-md-4 col-sm-12">
+            <div class="col-md-6 col-sm-12">
                 <div class="form-group">
-                    <p-inputNumber [size]="25" placeholder="Prix vente" mode="currency" currency="CFA" locale="CFA" formControlName="prixVente"></p-inputNumber>
+                    <p-inputNumber [size]="41"  placeholder="Prix vente" mode="currency" currency="CFA" locale="CFA" formControlName="prixVente"></p-inputNumber>
                 </div>
             </div>
-            <div class="col-md-4 col-sm-12">
+            <div class="col-md-6 col-sm-12">
                 <div class="form-group">
-                    <p-dropdown [options]="etatOptions" optionLabel="value" placeholder="etat" [style]="{'width': '100%'}" [appendTo]="form" formControlName="etat">
+                    <p-dropdown [options]="etatOptions" 
+                        optionLabel="value" 
+                        placeholder="etat" 
+                        [style]="{'width': '100%'}" 
+                        [appendTo]="form" formControlName="etat"
+                        >
                     </p-dropdown>
-                </div>
-            </div>
-            <div class="col-md-4 col-sm-12">
-                <div class="form-group">
-                    <input type="number" pInputText class="col-12" placeholder="qte" formControlName="qte">
                 </div>
             </div>
         </div>  

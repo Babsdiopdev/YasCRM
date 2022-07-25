@@ -11,6 +11,7 @@ export class UpdateCommandeComponent implements OnInit {
 
   commande!: Commande;
 
+  commandeOrDevis: string = 'COMMANDE';
   title: string = '';
   typeOperation: string = "update"
   buttonLabel: string = "Modifier"
@@ -23,8 +24,6 @@ export class UpdateCommandeComponent implements OnInit {
     this.getCommande();
 
     this.title = `Modification ${this.commande.reference}`;
-
-  console.log(this.commande)
   }
 
   getCommande() {

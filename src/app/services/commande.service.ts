@@ -16,20 +16,32 @@ export class CommandeService {
     private fb: FormBuilder
   ) { }
 
+  getAllCommandes(name: string): Observable<any> {
+    if(name === 'commande') {
+      return this.getOnlyCommandes();
+    } else {
+      return this.getOnlyDevis();
+    }
+  }
+
   getOnlyCommandes(): Observable<any> {
     return this.httpClient.get<any>(`${this.host}/commandes/getCommandeByEtape/COMMANDE`);
   }
 
   getOnlyDevis(): Observable<any> {
-    return this.httpClient.get<any>(`${this.host}/commandes/getcommandeByEtape/DEVIS`);
+    return this.httpClient.get<any>(`${this.host}/commandes/getCommandeByEtape/DEVIS`);
   }
 
   saveCommande(commande: any): Observable<any> {
     return this.httpClient.post<any>(`${this.host}/commandes/saveCommande`, commande);
   }
 
-  updateConactById(id: number, commande: any): Observable<any> {
+  updateCommandeyId(id: number, commande: any): Observable<any> {
     return this.httpClient.put<any>(`${this.host}/commandes/updateCommandeById/${id}`, commande);
+  }
+
+  deleteCommandeById(id: number): Observable<any> {
+    return this.httpClient.delete<any>(`${this.host}/commandes/deleteCommandeById/${id}`);
   }
 
   /**
@@ -45,6 +57,7 @@ export class CommandeService {
 
   createArticleForm(validators?: any): FormGroup {
     return this.fb.group({
+      id: [''],
       article: ['', validators?.article],
       qte: ['', validators?.qte],
     })

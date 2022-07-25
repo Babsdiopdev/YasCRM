@@ -6,7 +6,8 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./add-commande.component.scss']
 })
 export class AddCommandeComponent implements OnInit {
-
+  
+  commandeOrDevis: string = 'COMMANDE';
   title: string = 'Ajout de commande';
   typeOperation: string = "save";
   buttonLabel: string = "Ajouter"

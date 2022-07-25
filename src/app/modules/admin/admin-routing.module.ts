@@ -3,6 +3,7 @@ import { RouterModule, Routes } from '@angular/router';
 import { ConfigurationComponent } from './components/configuration/configuration.component';
 import { CommandeComponent } from './components/crm/commande/commande.component';
 import { ContactComponent } from './components/crm/contact/contact.component';
+import { DevisComponent } from './components/crm/devis/devis.component';
 import { ArticleComponent } from './components/stock/article/article.component';
 
 const routes: Routes = [
@@ -14,7 +15,8 @@ const routes: Routes = [
   },
   { path:'article', component: ArticleComponent },
   { path:'configuration', component: ConfigurationComponent },
-  { path:'commande', component: CommandeComponent }
+  { path:'commande', component: CommandeComponent },
+  { path:'devis', component: DevisComponent }
 ];
 
 @NgModule({ 
