@@ -22,6 +22,10 @@ import { UpdateDevisComponent } from './components/crm/devis/update-devis/update
 import { FormCommandeComponent } from './components/crm/commande/form-commande/form-commande.component';
 import { AddDevisComponent } from './components/crm/devis/add-devis/add-devis.component';
 import { FormatEnumPipe } from 'src/app/shared/pipe/format-enum.pipe';
+import { FournisseurComponent } from './components/achats/fournisseur/fournisseur.component';
+import { AddFournisseurComponent } from './components/achats/fournisseur/add-fournisseur/add-fournisseur.component';
+import { UpdateFournisseurComponent } from './components/achats/fournisseur/update-fournisseur/update-fournisseur.component';
+import { FormFournisseurComponent } from './components/achats/fournisseur/form-fournisseur/form-fournisseur.component';
 
 @NgModule({
   declarations: [
@@ -41,7 +45,11 @@ import { FormatEnumPipe } from 'src/app/shared/pipe/format-enum.pipe';
     DevisComponent,
     UpdateDevisComponent,
     FormCommandeComponent,
-    AddDevisComponent
+    AddDevisComponent,
+    FournisseurComponent,
+    AddFournisseurComponent,
+    UpdateFournisseurComponent,
+    FormFournisseurComponent
   ],
   imports: [
     CommonModule,
