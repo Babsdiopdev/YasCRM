@@ -17,11 +17,7 @@ export class RvService {
 
   constructor(private httpClient: HttpClient,private fb: FormBuilder) { }
 
- /*
-  saveRv(rv:Rv): Observable<Rv>{
-    return this.httpClient.post<Rv>
-    (`${this.host}/rv`, rv);
-  }*/
+
   getAllRv(): Observable<any>{
     return this.httpClient.get<any>(`${this.host}/rvs`);
   }
@@ -29,24 +25,15 @@ export class RvService {
     return this.httpClient.post<Rv>
     (`${this.host}/rv`, rv);
   }
-  // createRvForm(validators?: any): FormGroup {
-  //   return this.fb.group({
-  //       id: [''],
-  //       reference: [''],
-  //      titre: ['', validators?.nom],
-  //       lieu: ['', validators?.prenom],
-  //       contact:  ['', validators?.telephone],
-  //       date_debut: ['', validators?.email],
-  //       date_fin: ['', validators?.civilite],
-  //       heure_debut: ['', validators?.pays],
-  //       heure_fin: ['', validators?.fonction],
-  //      employe: ['', validators?.typeContact],
-  //      description: ['']
-  //   });
-  // }
+
 
 
   updateRvById(id: number, rv: Rv): Observable<any> {
     return this.httpClient.put<any>(`${this.host}/updateRvById/${id}`, rv);
   }
+
+  deleRvById(id: number): Observable<any> {
+    return this.httpClient.delete<any>(`${this.host}/deleteRvById/${id}`);
+  }
+
 }

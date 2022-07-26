@@ -46,7 +46,7 @@ rv: any = {};
       addForm.controls['contactId'].setValue(addForm.value.contactId.id)
       addForm.controls['employeId'].setValue(addForm.value.employeId.id)
 
-      alert(JSON.stringify(addForm.value))
+      //alert(JSON.stringify(addForm.value))
 
       this.rvService.updateRvById(this.data.rv.id,addForm.value).subscribe(
     (response:Rv) =>{
@@ -84,26 +84,6 @@ rv: any = {};
     (response) => this.employes = response.payload
   );
 }
-// updateRvById(rv: Rv) {
 
-//   rv.id = this.rv.id;
-
-//   this.rvService.updateRvById(rv.id!, rv).subscribe(
-//     (response) => {
-//       Swal.fire({
-//         position: 'top-end',
-//         icon: (response.status === 'OK') ? 'success': 'error',
-//         title: `<small>${response.message}</small>`,
-//         showConfirmButton: false,
-//         timer: 1500
-//       }).then((result) => {
-//           if(result.dismiss) {
-//             this.dialog.closeAll();
-//           }
-//         }
-//       );
-//     }
-//   );
-// }
 
 }
