@@ -41,7 +41,6 @@ export class CommandeComponent implements OnInit {
       }
     );
   }
-
   onopenAddCommande() {
     const dialogConfig = new MatDialogConfig();
     dialogConfig.width = '800px';
