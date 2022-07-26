@@ -171,7 +171,7 @@ export class FormCommandeComponent implements OnInit {
 
     } else if(this.typeOperation === 'update') {
       const commandeHelper: CommandeHelper = new CommandeHelper(this.commandeService);
-      commandeHelper.updateCommande(this, this.commande.id, undefined, this.commandeForm);
+      commandeHelper.updateCommande(this, this.commande.id, undefined, this.commandeForm, undefined, undefined);
     }
   }
 

@@ -33,11 +33,11 @@ export class CommandeService {
   }
 
   saveCommande(commande: any): Observable<any> {
-    return this.httpClient.post<any>(`${this.host}/commandes/saveCommande`, commande);
+    return this.httpClient.post<any>(`${this.host}/commandes/saveCommandeContact`, commande);
   }
 
   updateCommandeyId(id: number, commande: any): Observable<any> {
-    return this.httpClient.put<any>(`${this.host}/commandes/updateCommandeById/${id}`, commande);
+    return this.httpClient.put<any>(`${this.host}/commandes/updateCommandeContactById/${id}`, commande);
   }
 
   deleteCommandeById(id: number): Observable<any> {
