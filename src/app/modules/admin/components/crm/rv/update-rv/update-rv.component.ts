@@ -24,20 +24,10 @@ export class UpdateRvComponent implements OnInit {
   rvResponse: any;
   contacts: Contact[] = [];
 
-rv: Rv = {
-  id: 0,
-  reference: '',
-  titre: '',
-  date_debut: new Date,
-  date_fin: new  Date,
-  heure_debut: '',
-  heure_fin: '',
-  description: '',
-  lieu: ''
-};
+rv: any = {};
   rvs: Rv[] = [];
   employes:Employe[] =[];
-  addForm!:NgForm;
+
 
 
   constructor(private rvService:RvService, private contactService: ContactService,
@@ -47,6 +37,8 @@ rv: Rv = {
   ngOnInit(): void {
     this.getAllContacts();
    this.getAllEmploye()
+   this.rv= this.data.rv;
+
   }
    public onModifierRv(rv:Rv,addForm: NgForm): void{
 
@@ -54,8 +46,11 @@ rv: Rv = {
       addForm.controls['contactId'].setValue(addForm.value.contactId.id)
       addForm.controls['employeId'].setValue(addForm.value.employeId.id)
 
-      this.rvService.updateRvById(this.id,this.data.rv).subscribe(
+      alert(JSON.stringify(addForm.value))
+
+      this.rvService.updateRvById(this.data.rv.id,addForm.value).subscribe(
     (response:Rv) =>{
+      this.dialog.closeAll
       console.log(response);
   },
     (error:HttpErrorResponse) =>{

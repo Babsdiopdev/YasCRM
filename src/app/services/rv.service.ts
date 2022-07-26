@@ -47,6 +47,6 @@ export class RvService {
 
 
   updateRvById(id: number, rv: Rv): Observable<any> {
-    return this.httpClient.put<any>(`${this.host}/rvs/updateRvById/${id}`, rv);
+    return this.httpClient.put<any>(`${this.host}/updateRvById/${id}`, rv);
   }
 }
