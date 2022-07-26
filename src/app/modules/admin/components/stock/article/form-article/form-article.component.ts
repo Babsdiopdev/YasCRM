@@ -36,16 +36,22 @@ export class FormArticleComponent implements OnInit {
       this.articleForm = this.articleService.createArticleForm({
         libelle: [Validators.required],
         prixVente: [Validators.required],
-        etat: [Validators.required],
-        qte: [Validators.required]
+        etat: {disabled: true},
       });
     } else if(this.typeOperation === 'update') {
+
+      let etat = {};
+
+      this.etatOptions.forEach(e => {
+        if(e.value === this.article.etat) {
+          etat = e;
+        }
+      });
+
       this.articleForm = this.articleService.createArticleForm();
-      //this.articleForm.setValue(this.article);
       this.articleForm.get('libelle')?.setValue(this.article.libelle);
       this.articleForm.get('prixVente')?.setValue(this.article.prixVente);
-      this.articleForm.get('etat')?.setValue(this.article.etat);
-      this.articleForm.get('qte')?.setValue(this.article.qte);
+      this.articleForm.get('etat')?.setValue(etat);
     }
   }
 
@@ -53,9 +59,8 @@ export class FormArticleComponent implements OnInit {
     const article: Article = {
       libelle: this.articleForm.value['libelle'],
       prixVente:  this.articleForm.value['prixVente'],
-      etat: this.articleForm.value['etat'].value,
       type: 'PRODUIT',
-      qte: this.articleForm.value['qte'],
+      qte: 0
     };
 
     if(this.typeOperation === 'save') {
@@ -66,6 +71,8 @@ export class FormArticleComponent implements OnInit {
   }
 
   saveArticle(article: Article) {
+    article.etat = this.etatOptions[1].value;
+
     this.articleService.saveArticle(article).subscribe(
       (response) => {
         Swal.fire({
@@ -87,6 +94,7 @@ export class FormArticleComponent implements OnInit {
   updateArticleById(article: Article) {
 
     article.id = this.article.id;
+    article.etat = this.articleForm.value['etat'].value;
 
     this.articleService.updateArticleById(article.id!, article).subscribe(
       (response) => {

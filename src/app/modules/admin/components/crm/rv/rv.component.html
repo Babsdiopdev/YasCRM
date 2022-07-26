@@ -1,4 +1,4 @@
-<!-- Content Wrapper.-->
+Content Wrapper.-->
 <div class="content-wrapper">
     <!-- Content Header -->
     <div class="content-header">
@@ -27,7 +27,7 @@
                                 </span>
                                 </div>
                                 <div class="col-sm-6 text-right">
-                                    <button pButton pRipple type="button" label="Nouveau Rv" (click)="openRv()" icon="pi pi-plus" iconPos="right" class="p-button-raised p-button-text"></button>
+                                    <button pButton pRipple type="button" label="Nouveau Rv" (click)="openAddRv()" icon="pi pi-plus" iconPos="right" class="p-button-raised p-button-text"></button>
                                 </div>
                             </div>
                         </ng-template>
@@ -117,6 +117,8 @@
                               </button>
                                     <mat-menu #menu="matMenu" id="matMenu">
                                         <button mat-menu-item class="buttonMenu" (click)="UpdateRv(rv)">
+                                    <!-- <mat-menu #menu="matMenu" id="matMenu"> -->
+                                    <button mat-menu-item class="buttonMenu">
                                       <span>Modifier</span>
                                       <mat-icon>edit</mat-icon>
                                   </button>
@@ -124,6 +126,7 @@
                                       <span>Supprimer</span>
                                       <mat-icon>delete_forever</mat-icon>
                                   </button>
+                                        </button>
                                     </mat-menu>
                                 </td>
                             </tr>
@@ -139,4 +142,3 @@
         </div>
     </section>
 </div>
-<!-- /.content-wrapper -->

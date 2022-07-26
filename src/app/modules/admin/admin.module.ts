@@ -19,7 +19,6 @@ import { CommandeComponent } from './components/crm/commande/commande.component'
 import { AddCommandeComponent } from './components/crm/commande/add-commande/add-commande.component';
 import { UpdateCommandeComponent } from './components/crm/commande/update-commande/update-commande.component';
 import { DevisComponent } from './components/crm/devis/devis.component';
-import { AppDevisComponent } from './components/crm/devis/app-devis/app-devis.component';
 import { UpdateDevisComponent } from './components/crm/devis/update-devis/update-devis.component';
 import { FormCommandeComponent } from './components/crm/commande/form-commande/form-commande.component';
 import { AgendaComponent } from './components/crm/agenda/agenda.component';
@@ -27,13 +26,21 @@ import { RvComponent } from './components/crm/rv/rv.component';
 import { AddRVComponent } from './components/crm/rv/add-rv/add-rv.component';
 import { UpdateRvComponent } from './components/crm/rv/update-rv/update-rv.component';
 
+// import { RvComponent } from './components/crm/rv/rv.component';
+// import { AddRVComponent } from './components/crm/rv/add-rv/add-rv.component';
 
 
 
+
+
+import { AddDevisComponent } from './components/crm/devis/add-devis/add-devis.component';
+import { FormatEnumPipe } from 'src/app/shared/pipe/format-enum.pipe';
 
 @NgModule({
   declarations: [
+    FormatEnumPipe,
     ContactComponent,
+
     AddContactComponent,
     FormContactComponent,
     UpdateContactComponent,
@@ -46,7 +53,6 @@ import { UpdateRvComponent } from './components/crm/rv/update-rv/update-rv.compo
     AddCommandeComponent,
     UpdateCommandeComponent,
     DevisComponent,
-    AppDevisComponent,
     UpdateDevisComponent,
     FormCommandeComponent,
     CommandeComponent,
@@ -55,6 +61,7 @@ import { UpdateRvComponent } from './components/crm/rv/update-rv/update-rv.compo
       RvComponent,
       AddRVComponent,
       UpdateRvComponent,
+    AddDevisComponent
 
   ],
   imports: [
@@ -64,7 +71,6 @@ import { UpdateRvComponent } from './components/crm/rv/update-rv/update-rv.compo
     MaterielModule,
      ReactiveFormsModule,
     FormsModule
-
   ]
 })
 export class AdminModule { }

@@ -45,7 +45,7 @@ export class ArticleComponent implements OnInit {
 
   onopenAddArticle() {
     const dialogConfig = new MatDialogConfig();
-    dialogConfig.maxWidth = '800px';
+    dialogConfig.width = '800px';
     dialogConfig.backdropClass = 'bacdrop-modal';
     dialogConfig.disableClose = true;
     dialogConfig.position = { top: '10px'};
@@ -58,7 +58,7 @@ export class ArticleComponent implements OnInit {
 
   onopenUpdateArticle(article: Article) {
     const dialogConfig = new MatDialogConfig();
-    dialogConfig.maxWidth = '800px';
+    dialogConfig.width = '800px';
     dialogConfig.backdropClass = 'bacdrop-modal';
     dialogConfig.disableClose = true;
     dialogConfig.position = { top: '5px' };

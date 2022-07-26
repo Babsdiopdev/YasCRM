@@ -1,1 +1,182 @@
-<p>devis works!</p>
+<!-- Content Wrapper.-->
+<div class="content-wrapper">
+    <!-- Content Header -->
+    <div class="content-header">
+        <div class="container-fluid">
+            <div class="row mb-2">
+                <div class="col-sm-6">
+                    <h6 class="m-0 p-0text-dark">Devis</h6>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- Main content -->
+    <section class="content">
+        <div class="container-fluid">
+            <div class="row">
+                <div class="col-md-12">
+                    <p-table #dt1 [value]="devis" dataKey="id" [rows]="10" [showCurrentPageReport]="true"
+                        [rowsPerPageOptions]="[10,25,50]" styleClass="p-datatable-customers p-datatable-gridlines"
+                        [paginator]="true" currentPageReportTemplate="{last} / {totalRecords} contacts"
+                        [globalFilterFields]="['nom', 'prenom', 'telephone', 'pays', 'typeContact', 'email', 'reference', 'civilite', 'fonction']">
+                        <ng-template pTemplate="caption">
+                            <div class="row">
+                                <div class="col-sm-6 text-left">
+                                    <span class="p-input-icon-right p-ml-auto">
+                                        <i class="pi pi-search"></i>
+                                        <input pInputText type="text" (input)="applyFilterGlobal($event, 'contains')" placeholder="mot clé" />
+                                    </span>
+                                </div>
+                                <div class="col-sm-6 text-right">
+                                    <button (click)="onopenAddDevis()" pButton pRipple type="button" label="Nouveau devis" icon="pi pi-plus" iconPos="right" class="p-button-raised p-button-text"></button>
+                                </div>
+                                </div>
+                        </ng-template>
+                        <ng-template pTemplate="header">
+                            <tr>
+                                <th style="width: 3rem"></th>
+                                <th>
+                                    <div class="p-d-flex p-jc-between p-ai-center">
+                                        Référence                                 
+                                    </div>
+                                </th>
+                                <th>
+                                    <div class="p-d-flex p-jc-between p-ai-center">
+                                        Contact
+                                    </div>
+                                </th>
+                                <th>
+                                    <div class="p-d-flex p-jc-between p-ai-center">
+                                        Nbre article
+                                    </div>
+                                </th>
+                                <th>
+                                    <div class="p-d-flex p-jc-between p-ai-center">
+                                        Total
+                                    </div>
+                                </th>
+                                <th>
+                                    <div class="p-d-flex p-jc-between p-ai-center">
+                                        Etat
+                                    </div>
+                                </th>
+                                <th>
+                                    <div class="p-d-flex p-jc-between p-ai-center">
+                                        Actions
+                                    </div>
+                                </th>
+                            </tr>
+                        </ng-template>
+                        <ng-template pTemplate="body" let-devis let-expanded="expanded">
+                            <tr>
+                                <td>
+                                    <button type="button" pButton pRipple [pRowToggler]="devis" class="p-button-text p-button-rounded p-button-plain" [icon]="expanded ? 'pi pi-chevron-down' : 'pi pi-chevron-right'"></button>
+                                </td>
+                                <td>
+                                    {{devis.reference}}
+                                </td>
+                                <td>
+                                    {{devis.contact.prenom}} {{devis.contact.nom}}
+                                </td>
+                                <td>
+                                    {{devis.ventes.length}}
+                                </td>
+                                <td>
+                                    {{devis.totalCommande}}
+                                </td>
+                                <td>
+                                    <p-message [severity]="getColor(devis.etat)" text="{{devis.etat | formatEnum}}"></p-message>
+                                </td>
+                                <td>
+                                    <button mat-icon-button [matMenuTriggerFor]="menu" aria-label="Example icon-button with a menu">
+                                        <mat-icon>more_vert</mat-icon>
+                                    </button>
+                                    <mat-menu #menu="matMenu" id="matMenu">
+                                        <button mat-menu-item class="buttonMenu" (click)="openupdateDevis(devis)">
+                                            <span>Modifier</span>
+                                            <mat-icon>edit</mat-icon>
+                                        </button>
+                                        <button mat-menu-item class="buttonMenu" (click)="ondeleteDevisById(devis)">
+                                            <span>Supprimer</span>
+                                            <mat-icon>delete_forever</mat-icon>
+                                        </button>
+
+                                        <p-divider></p-divider>
+
+                                        <button mat-menu-item *ngIf="devis.etat === 'EN_COURS'" class="buttonMenu" (click)="onvalidateDevis(devis)">
+                                            <span>Valider</span>
+                                            <mat-icon>check_circle</mat-icon>
+                                        </button>
+                                        <button mat-menu-item *ngIf="devis.etat === 'EN_COURS'" class="buttonMenu" (click)="onCancelDevis(devis)">
+                                            <span>Annuler</span>
+                                            <mat-icon>cancel</mat-icon>
+                                        </button>
+                                    </mat-menu>
+                                </td>
+                            </tr>
+                        </ng-template>
+                        <ng-template pTemplate="rowexpansion" let-devis>
+                            <tr>
+                                <td colspan="7">
+                                    <div class="p-3">
+                                        <p-table [value]="devis.ventes" dataKey="id">
+                                            <ng-template pTemplate="header">
+                                                <tr>
+                                                    <th>
+                                                        <div class="p-d-flex p-jc-between p-ai-center">
+                                                            Libellé                                
+                                                        </div>
+                                                    </th>
+                                                    <th>
+                                                        <div class="p-d-flex p-jc-between p-ai-center">
+                                                            Prix unitaire                                 
+                                                        </div>
+                                                    </th>
+                                                    <th>
+                                                        <div class="p-d-flex p-jc-between p-ai-center">
+                                                            Qté                               
+                                                        </div>
+                                                    </th>
+                                                    <th>
+                                                        <div class="p-d-flex p-jc-between p-ai-center">
+                                                            Date                              
+                                                        </div>
+                                                    </th>
+                                                    <th>
+                                                        <div class="p-d-flex p-jc-between p-ai-center">
+                                                            Total                                 
+                                                        </div>
+                                                    </th>
+                                                </tr>
+                                            </ng-template>
+                                            <ng-template pTemplate="body" let-vente>
+                                                <tr>
+                                                    <td>{{vente.article.libelle}}</td>
+                                                    <td>{{vente.article.prixVente}}</td>
+                                                    <td>{{vente.qte}}</td>
+                                                    <td>{{vente.dateVente | date:'dd-MM-yyyy'}}</td>
+                                                    <td>{{vente.total}}</td>
+                                                </tr>
+                                            </ng-template>
+                                            <ng-template pTemplate="emptymessage">
+                                                <tr>
+                                                    <td colspan="6">There are no order for this product yet.</td>
+                                                </tr>
+                                            </ng-template>
+                                        </p-table>
+                                    </div>
+                                </td>
+                            </tr>
+                        </ng-template>
+                        <ng-template pTemplate="emptymessage">
+                            <tr>
+                                <td colspan="12">{{devisResponse?.message}}</td>
+                            </tr>
+                        </ng-template>
+                    </p-table>
+                </div>
+            </div>
+        </div>
+    </section>
+</div>
+<!-- /.content-wrapper -->

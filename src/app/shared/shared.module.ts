@@ -19,7 +19,7 @@ import { ReactiveFormsModule } from '@angular/forms';
     HeaderComponent,
     FooterComponent,
     SidebarComponent,
-    FullComponent
+    FullComponent,
   ],
   imports: [
     CommonModule,
@@ -36,6 +36,7 @@ import { ReactiveFormsModule } from '@angular/forms';
     FullComponent,
     FooterComponent,
   ]
+
 
 })
 export class SharedModule { }

@@ -1,3 +1,4 @@
+
 import { Component, OnInit, ViewChild } from '@angular/core';
 import { Table } from 'primeng/table';
 import { Rv } from 'src/app/models/rv.model';
@@ -5,6 +6,12 @@ import { RvService } from 'src/app/services/rv.service';
 import { MatDialog, MatDialogConfig } from '@angular/material/dialog';
 import { AddRVComponent } from './add-rv/add-rv.component';
 import { UpdateRvComponent } from './update-rv/update-rv.component';
+// import { Component, OnInit, ViewChild } from '@angular/core';
+// import { Table } from 'primeng/table';
+// import { Rv } from 'src/app/models/rv.model';
+// import { RvService } from 'src/app/serices/rv.service';
+// import { MatDialog, MatDialogConfig } from '@angular/material/dialog';
+// import { AddRVComponent } from './add-rv/add-rv.component';
 
 @Component({
   selector: 'app-rv',
@@ -35,30 +42,24 @@ export class RvComponent implements OnInit {
       }
     );
   }
-  // openAddRv() {
-  //   const dialogConfig = new MatDialogConfig();
-  //   dialogConfig.width = '720px';
-  //   dialogConfig.height = '500px';
-  //   dialogConfig.backdropClass = 'bacdrop-modal';
-  //   dialogConfig.disableClose = true;
-  // const dialogRef = this.dialog.open(AddRVComponent, dialogConfig);
-  //   dialogRef.afterClosed().subscribe(result => {
-  //     console.log(`Dialog result: ${result}`);
-  //   });
-  //  }
-
-   openRv(){
+  openAddRv() {
     const dialogConfig = new MatDialogConfig();
     dialogConfig.width = '720px';
-    dialogConfig.height = '600';
+    dialogConfig.height = '500px';
     dialogConfig.backdropClass = 'bacdrop-modal';
     dialogConfig.disableClose = true;
-    this.dialog.open(AddRVComponent, dialogConfig)
-    .afterClosed().subscribe(
-      result => {
-        this.getAllRvs();}
-    )
-}
+  const dialogRef = this.dialog.open(AddRVComponent, dialogConfig);
+    dialogRef.afterClosed().subscribe(result => {
+      console.log(`Dialog result: ${result}`);
+    });
+   }
+
+
+//    openRv(){
+//       result => {
+//         this.getAllRvs();}
+
+// }
 
 UpdateRv(rv:Rv){
   const dialogConfig = new MatDialogConfig();
@@ -74,11 +75,17 @@ UpdateRv(rv:Rv){
   )
 }
 
-  }
+//    openRv(){
+//     dialogConfig.width = '720px';
+//     dialogConfig.backdropClass = 'bacdrop-modal';
+//     this.dialog.open(AddRVComponent, dialogConfig)
+//       result => {
+//     )
+//   }
 
 
 
-function AddRvComponent(AddRvComponent: any, dialogConfig: MatDialogConfig<any>) {
-  throw new Error('Function not implemented.');
+// function AddRvComponent(AddRvComponent: any, dialogConfig: MatDialogConfig<any>) {
+//   throw new Error('Function not implemented.');
+
 }
-
