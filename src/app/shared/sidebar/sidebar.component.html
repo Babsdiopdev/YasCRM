@@ -18,6 +18,13 @@
     <!-- Sidebar Menu -->
     <nav class="mt-2">
       <ul class="nav nav-pills nav-sidebar flex-column" data-widget="treeview" role="menu">
+        <li class="nav-item">
+          <a routerLink="/admin/agenda" class="nav-link" routerLinkActive="active">
+              <span class="nav-icon">
+              </span>
+              <p>Agenda</p>
+          </a>
+        </li>
         <li class="nav-item menu-open">
           <a class="nav-link">
             <mat-icon [style]="{'vertical-align': 'middle'}">badge</mat-icon>
@@ -28,21 +35,56 @@
           </a>
           <ul class="nav nav-treeview">
             <li class="nav-item">
-              <a class="nav-link" routerLink="admin/contact" routerLinkActive="active">
+              <a class="nav-link" routerLink="admin/crm/contact" routerLinkActive="active">
                 <i class="far fa-circle nav-icon"></i>
-                <p>Contact</p>
+                <p>Contacts</p>
               </a>
             </li>
             <li class="nav-item">
-              <a class="nav-link" routerLink="admin/commande" routerLinkActive="active">
+              <a class="nav-link" routerLink="admin/crm/commande" routerLinkActive="active">
                 <i class="far fa-circle nav-icon"></i>
-                <p>Commande</p>
+                <p>Commandes</p>
               </a>
             </li>
             <li class="nav-item">
-              <a class="nav-link" routerLink="admin/devis" routerLinkActive="active">
+              <a class="nav-link" routerLink="admin/crm/devis" routerLinkActive="active">
                 <i class="far fa-circle nav-icon"></i>
                 <p>Devis</p>
+              </a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" routerLink="admin/crm/tache" routerLinkActive="active">
+                <i class="far fa-circle nav-icon"></i>
+                <p>tache</p>
+              </a>
+            </li>
+          </ul>
+        </li>
+        <li class="nav-item menu-open">
+          <a class="nav-link">
+            <mat-icon [style]="{'vertical-align': 'middle'}">badge</mat-icon>
+            <p>
+              Achats
+              <i class="right fas fa-angle-left"></i>
+            </p>
+          </a>
+          <ul class="nav nav-treeview">
+            <li class="nav-item">
+              <a class="nav-link" routerLink="admin/achats/fournisseur" routerLinkActive="active">
+                <i class="far fa-circle nav-icon"></i>
+                <p>Fournisseurs</p>
+              </a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" routerLink="" routerLinkActive="">
+                <i class="far fa-circle nav-icon"></i>
+                <p>Commandes</p>
+              </a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" routerLink="" routerLinkActive="">
+                <i class="far fa-circle nav-icon"></i>
+                <p>Approvisionnements</p>
               </a>
             </li>
           </ul>
@@ -57,18 +99,11 @@
           </a>
           <ul class="nav nav-treeview">
             <li class="nav-item">
-              <a class="nav-link" routerLink="admin/article" routerLinkActive="active">
+              <a class="nav-link" routerLink="admin/stock/article" routerLinkActive="active">
                 <i class="far fa-circle nav-icon"></i>
                 <p>Articles</p>
               </a>
           </li>
-          <li class="nav-item">
-            <a routerLink="/admin/agenda" class="nav-link" routerLinkActive="active">
-                <span class="nav-icon">
-                </span>
-                <p>Agenda</p>
-            </a>
-        </li>
           </ul>
         </li>
         <li class="nav-item">

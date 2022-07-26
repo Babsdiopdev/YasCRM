@@ -23,6 +23,10 @@ import { UpdateDevisComponent } from './components/crm/devis/update-devis/update
 import { FormCommandeComponent } from './components/crm/commande/form-commande/form-commande.component';
 import { AddDevisComponent } from './components/crm/devis/add-devis/add-devis.component';
 import { FormatEnumPipe } from 'src/app/shared/pipe/format-enum.pipe';
+import { FournisseurComponent } from './components/achats/fournisseur/fournisseur.component';
+import { AddFournisseurComponent } from './components/achats/fournisseur/add-fournisseur/add-fournisseur.component';
+import { UpdateFournisseurComponent } from './components/achats/fournisseur/update-fournisseur/update-fournisseur.component';
+import { FormFournisseurComponent } from './components/achats/fournisseur/form-fournisseur/form-fournisseur.component';
 import { TacheComponent } from './components/crm/tache/tache.component';
 import { AddTacheComponent } from './components/crm/tache/add-tache/add-tache.component';
 import { UpdateTacheComponent } from './components/crm/tache/update-tache/update-tache.component';
@@ -51,7 +55,11 @@ import { UpdateTacheComponent } from './components/crm/tache/update-tache/update
     AddDevisComponent,
     TacheComponent,
     AddTacheComponent,
-    UpdateTacheComponent
+    UpdateTacheComponent,
+    FournisseurComponent,
+    AddFournisseurComponent,
+    UpdateFournisseurComponent,
+    FormFournisseurComponent
   ],
   imports: [
     CommonModule,

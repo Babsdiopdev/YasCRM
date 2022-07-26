@@ -5,10 +5,10 @@
         <div class="container-fluid">
             <div class="row mb-2">
                 <div class="col-sm-6">
-                    <h6 class="m-0 p-0text-dark">Taches</h6>
+                    <h6 class="m-0 p-0text-dark">Fournisseur</h6>
                 </div>
                 <div class="col-sm-6" style="text-align: end;">
-                    <span ><a>CRM</a></span> / <span><a>Tache</a></span>
+                    <span ><a>Achats</a></span> / <span><a>Fournisseur</a></span>
                 </div>
             </div>
         </div>
@@ -17,53 +17,11 @@
     <section class="content">
         <div class="container-fluid">
             <div class="row">
-                <div class="col-md-4">
-                    <div class="small-box bg-gradient-warning">
-                        <div class="inner">
-                            <h3>{{Taches.length}}</h3>
-                            <p>Taches</p>
-                        </div>
-                        <div class="icon">
-                            <i class="fas fa-user-plus"></i>
-                        </div>
-                        <a href="#" class="small-box-footer">
-                            Plus d'info <i class="fas fa-arrow-circle-right"></i>
-                        </a>
-                    </div>
-                </div>
-                <div class="col-md-4">
-                    <div class="small-box bg-info">
-                        <div class="inner">
-                            
-                            <p>Taches accomplie</p>
-                        </div>
-                        <div class="icon">
-                            <i class="fas fa-user-plus"></i>
-                        </div>
-                        <a href="#" class="small-box-footer">
-                            Plus d'info <i class="fas fa-arrow-circle-right"></i>
-                        </a>
-                    </div>
-                </div>
-                <div class="col-md-4">
-                    <div class="small-box bg-gradient-success">
-                        <div class="inner">
-                            
-                            <p>Taches en cours</p>
-                        </div>
-                        <div class="icon">
-                            <i class="fas fa-user-plus"></i>
-                        </div>
-                        <a href="#" class="small-box-footer">
-                            Plus d'info <i class="fas fa-arrow-circle-right"></i>
-                        </a>
-                    </div>
-                </div>
                 <div class="col-md-12">
-                    <p-table #dt1 [value]="Taches" dataKey="id" [rows]="10" [showCurrentPageReport]="true"
+                    <p-table #dt1 [value]="fournisseurs" dataKey="id" [rows]="10" [showCurrentPageReport]="true"
                         [rowsPerPageOptions]="[10,25,50]" styleClass="p-datatable-customers p-datatable-gridlines"
                         [paginator]="true" currentPageReportTemplate="{last} / {totalRecords} contacts"
-                        [globalFilterFields]="['nom', 'prenom', 'telephone', 'pays', 'typeContact', 'email', 'reference', 'civilite', 'fonction']">
+                        [globalFilterFields]="['nom', 'prenom', 'telephone', 'email', 'reference', 'adresse']">
                         <ng-template pTemplate="caption">
                             <div class="row">
                                 <div class="col-sm-6 text-left">
@@ -73,7 +31,7 @@
                                     </span>
                                 </div>
                                 <div class="col-sm-6 text-right">
-                                    <button (click)="openAddTache()" pButton pRipple type="button" label="Nouvelle tache" icon="pi pi-plus" iconPos="right" class="p-button-raised p-button-text"></button>
+                                    <button (click)="onopenAddFournisseur()" pButton pRipple type="button" label="Nouveau fournisseur" icon="pi pi-plus" iconPos="right" class="p-button-raised p-button-text"></button>
                                 </div>
                                 </div>
                         </ng-template>
@@ -81,25 +39,29 @@
                             <tr>
                                 <th>
                                     <div class="p-d-flex p-jc-between p-ai-center">
-                                        titre                                 
+                                        Référence                                 
                                     </div>
                                 </th>
                                 <th>
                                     <div class="p-d-flex p-jc-between p-ai-center">
-                                        Createur 
+                                        Nom
                                     </div>
                                 </th>
                                 <th>
                                     <div class="p-d-flex p-jc-between p-ai-center">
-                                        responsable
+                                        Téléphone
                                     </div>
                                 </th>
                                 <th>
                                     <div class="p-d-flex p-jc-between p-ai-center">
-                                        date
+                                        Email
                                     </div>
                                 </th>
-                                
+                                <th>
+                                    <div class="p-d-flex p-jc-between p-ai-center">
+                                        Adresse
+                                    </div>
+                                </th>
                                 <th>
                                     <div class="p-d-flex p-jc-between p-ai-center">
                                         Actions
@@ -107,30 +69,33 @@
                                 </th>
                             </tr>
                         </ng-template>
-                        <ng-template pTemplate="body" let-tache>
+                        <ng-template pTemplate="body" let-fournisseur>
                             <tr>
                                 <td>
-                                    {{tache.titre}}
+                                    {{fournisseur.reference}}
                                 </td>
                                 <td>
-                                    {{tache.createur}}
+                                    {{fournisseur.prenom}} {{fournisseur.nom}}
                                 </td>
                                 <td>
-                                    {{tache.responsable}}
+                                    {{fournisseur.telephone}}
                                 </td>
                                 <td>
-                                    {{tache.date}}
+                                    {{fournisseur.email}}
+                                </td>
+                                <td>
+                                    {{fournisseur.adresse}}
                                 </td>
                                 <td>
                                     <button mat-icon-button [matMenuTriggerFor]="menu" aria-label="Example icon-button with a menu">
                                         <mat-icon>more_vert</mat-icon>
                                     </button>
                                     <mat-menu #menu="matMenu" id="matMenu">
-                                        <button mat-menu-item class="buttonMenu" (click)="openUpdateTache(tache)">
+                                        <button mat-menu-item class="buttonMenu" (click)="openupdateFournisseur(fournisseur)">
                                             <span>Modifier</span>
                                             <mat-icon>edit</mat-icon>
                                         </button>
-                                        <button mat-menu-item class="buttonMenu"(click)="deleteTacheById(tache)">
+                                        <button mat-menu-item class="buttonMenu" (click)="ondeleteFournisseurById(fournisseur)">
                                             <span>Supprimer</span>
                                             <mat-icon>delete_forever</mat-icon>
                                         </button>
@@ -140,7 +105,7 @@
                         </ng-template>
                         <ng-template pTemplate="emptymessage">
                             <tr>
-                                <td colspan="12">{{listTache?.message}}</td>
+                                <td colspan="12">{{fournisseurResponse?.message}}</td>
                             </tr>
                         </ng-template>
                     </p-table>
