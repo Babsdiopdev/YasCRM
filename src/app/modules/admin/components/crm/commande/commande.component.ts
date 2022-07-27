@@ -43,7 +43,6 @@ export class CommandeComponent implements OnInit {
       }
     );
   }
-
   onopenAddCommande() {
     const dialogConfig = new MatDialogConfig();
     dialogConfig.width = '800px';
@@ -116,10 +115,9 @@ export class CommandeComponent implements OnInit {
     if(etat === 'VALIDE')
       return 'success';
     else if(etat === 'EN_COURS')
-      return 'info'
+      return 'info';
     else if(etat === 'ANNULE')
-      return 'error'
+      return 'error';
     else return '';
-  }}
-
-
+  }
+}
