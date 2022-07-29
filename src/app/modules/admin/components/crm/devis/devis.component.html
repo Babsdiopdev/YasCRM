@@ -85,7 +85,7 @@
                                     {{devis.totalCommande}}
                                 </td>
                                 <td>
-                                    <p-message [severity]="getColor(devis.etat)" text="{{devis.etat | formatEnum}}"></p-message>
+                                    <p-message [severity]="getColor(devis.etatDevis)" text="{{devis.etatDevis | formatEnum}}"></p-message>
                                 </td>
                                 <td>
                                     <button mat-icon-button [matMenuTriggerFor]="menu" aria-label="Example icon-button with a menu">
@@ -103,11 +103,11 @@
 
                                         <p-divider></p-divider>
 
-                                        <button mat-menu-item *ngIf="devis.etat === 'EN_COURS'" class="buttonMenu" (click)="onvalidateDevis(devis)">
+                                        <button mat-menu-item *ngIf="devis.etatDevis === 'EN_COURS'" class="buttonMenu" (click)="onvalidateDevis(devis)">
                                             <span>Valider</span>
                                             <mat-icon>check_circle</mat-icon>
                                         </button>
-                                        <button mat-menu-item *ngIf="devis.etat === 'EN_COURS'" class="buttonMenu" (click)="onCancelDevis(devis)">
+                                        <button mat-menu-item *ngIf="devis.etatDevis === 'EN_COURS'" class="buttonMenu" (click)="onCancelDevis(devis)">
                                             <span>Annuler</span>
                                             <mat-icon>cancel</mat-icon>
                                         </button>

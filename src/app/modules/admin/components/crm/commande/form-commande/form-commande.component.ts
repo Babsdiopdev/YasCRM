@@ -162,7 +162,8 @@ export class FormCommandeComponent implements OnInit {
 
       const commande = {
         etape: this.commandeOrDevis,
-        etat:  this.etatOptions[1].value,
+        etatCommande: (this.commandeOrDevis === 'COMMANDE')? this.etatOptions[1].value: null,
+        etatDevis: (this.commandeOrDevis === 'DEVIS')? this.etatOptions[1].value : null,
         contactId: this.commandeForm.value['contact'].id,
         ventes: articles
       };

@@ -5,7 +5,8 @@ export interface Commande {
     reference?: string
     totalCommande: number
     etape: string
-    etat: string
+    etatCommande: string,
+    etatDevis: string,
     contact?: Contact,
     ventes?: any[]
 }

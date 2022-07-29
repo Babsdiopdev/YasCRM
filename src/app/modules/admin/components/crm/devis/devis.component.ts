@@ -97,20 +97,20 @@ export class DevisComponent implements OnInit {
 
   onvalidateDevis(devis: Commande) {
     const commandeHelper: CommandeHelper = new CommandeHelper(this.commandeService);
-    commandeHelper.updateCommande(this, undefined, devis, undefined, 'VALIDE', 'COMMANDE');
+    commandeHelper.updateCommande(this, undefined, devis, undefined, 'VALIDE', 'EN_COURS', 'COMMANDE');
   }
 
   onCancelDevis(devis: Commande) {
     const commandeHelper: CommandeHelper = new CommandeHelper(this.commandeService);
-    commandeHelper.updateCommande(this, undefined, devis, undefined, 'ANNULE', 'DEVIS');
+    commandeHelper.updateCommande(this, undefined, devis, undefined, 'ANNULE', devis.etatCommande, devis.etape);
   }
 
-  getColor(etat: any): string{
-    if(etat === 'VALIDE') 
+  getColor(etatDevis: any): string{
+    if(etatDevis === 'VALIDE') 
       return 'success';
-    else if(etat === 'EN_COURS') 
+    else if(etatDevis === 'EN_COURS') 
       return 'info'
-    else if(etat === 'ANNULE') 
+    else if(etatDevis === 'ANNULE') 
       return 'error'
     else return '';
   }

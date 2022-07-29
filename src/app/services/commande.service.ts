@@ -25,11 +25,11 @@ export class CommandeService {
   }
 
   getOnlyCommandes(): Observable<any> {
-    return this.httpClient.get<any>(`${this.host}/commandes/getCommandeByEtape/COMMANDE`);
+    return this.httpClient.get<any>(`${this.host}/commandes/getAllCommandeByEtatCommande`);
   }
 
   getOnlyDevis(): Observable<any> {
-    return this.httpClient.get<any>(`${this.host}/commandes/getCommandeByEtape/DEVIS`);
+    return this.httpClient.get<any>(`${this.host}/commandes/getAllDevisByEtatDevis`);
   }
 
   saveCommande(commande: any): Observable<any> {
