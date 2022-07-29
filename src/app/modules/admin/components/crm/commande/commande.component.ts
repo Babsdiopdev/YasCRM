@@ -1,3 +1,4 @@
+
 import { Component, OnInit, ViewChild } from '@angular/core';
 import { MatDialog, MatDialogConfig } from '@angular/material/dialog';
 import { Table } from 'primeng/table';
@@ -14,6 +15,7 @@ import { UpdateCommandeComponent } from './update-commande/update-commande.compo
   styleUrls: ['./commande.component.scss']
 })
 export class CommandeComponent implements OnInit {
+
 
   @ViewChild('dt1 ') dt1: Table | undefined;
 
@@ -66,6 +68,9 @@ export class CommandeComponent implements OnInit {
     });
   }
 
+//   ondeleteCommandeById(commande: Commande) {}
+// }
+
   ondeleteCommandeById(commande: Commande) {
     Swal.fire({
       icon: 'question',
@@ -93,7 +98,7 @@ export class CommandeComponent implements OnInit {
       }
     })
   }
-  
+
   onvalidateCommande(commande: Commande) {
     const commandeHelper: CommandeHelper = new CommandeHelper(this.commandeService);
     commandeHelper.updateCommande(this, undefined, commande, undefined, 'VALIDE', 'COMMANDE');
@@ -107,12 +112,12 @@ export class CommandeComponent implements OnInit {
   ongenerateFacture(commande: Commande) {}
 
   getColor(etat: any): string{
-    if(etat === 'VALIDE') 
+    if(etat === 'VALIDE')
       return 'success';
-    else if(etat === 'EN_COURS') 
-      return 'info'
-    else if(etat === 'ANNULE') 
-      return 'error'
+    else if(etat === 'EN_COURS')
+      return 'info';
+    else if(etat === 'ANNULE')
+      return 'error';
     else return '';
   }
 }

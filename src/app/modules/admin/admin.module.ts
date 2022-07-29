@@ -4,6 +4,7 @@ import { AdminRoutingModule } from './admin-routing.module';
 import { PrimengModule } from 'src/app/ui/primeng.module';
 import { MaterielModule } from 'src/app/ui/materiel.module';
 import { ContactComponent } from './components/crm/contact/contact.component';
+
 import { AddcommandeComponent } from './components/crm/commande/addcommande/addcommande.component';
 import { AddContactComponent } from './components/crm/contact/add-contact/add-contact.component';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
@@ -15,12 +16,24 @@ import { UpdateArticleComponent } from './components/stock/article/update-articl
 import { FormArticleComponent } from './components/stock/article/form-article/form-article.component';
 import { ConfigurationComponent } from './components/configuration/configuration.component';
 import { CommandeComponent } from './components/crm/commande/commande.component';
-import { AgendaComponent } from './components/crm/agenda/agenda.component';
+//import { AgendaComponent } from './components/crm/agenda/agenda.component';
 import { AddCommandeComponent } from './components/crm/commande/add-commande/add-commande.component';
 import { UpdateCommandeComponent } from './components/crm/commande/update-commande/update-commande.component';
 import { DevisComponent } from './components/crm/devis/devis.component';
 import { UpdateDevisComponent } from './components/crm/devis/update-devis/update-devis.component';
 import { FormCommandeComponent } from './components/crm/commande/form-commande/form-commande.component';
+import { AgendaComponent } from './components/crm/agenda/agenda.component';
+import { RvComponent } from './components/crm/rv/rv.component';
+import { AddRVComponent } from './components/crm/rv/add-rv/add-rv.component';
+import { UpdateRvComponent } from './components/crm/rv/update-rv/update-rv.component';
+
+// import { RvComponent } from './components/crm/rv/rv.component';
+// import { AddRVComponent } from './components/crm/rv/add-rv/add-rv.component';
+
+
+
+
+
 import { AddDevisComponent } from './components/crm/devis/add-devis/add-devis.component';
 import { FormatEnumPipe } from 'src/app/shared/pipe/format-enum.pipe';
 import { FournisseurComponent } from './components/achats/fournisseur/fournisseur.component';
@@ -35,6 +48,7 @@ import { UpdateTacheComponent } from './components/crm/tache/update-tache/update
   declarations: [
     FormatEnumPipe,
     ContactComponent,
+
     CommandeComponent,
     AddcommandeComponent,
     AddContactComponent,
@@ -52,6 +66,15 @@ import { UpdateTacheComponent } from './components/crm/tache/update-tache/update
     DevisComponent,
     UpdateDevisComponent,
     FormCommandeComponent,
+    CommandeComponent,
+    DevisComponent,
+     AgendaComponent,
+      RvComponent,
+      AddRVComponent,
+      UpdateRvComponent,
+
+
+
     AddDevisComponent,
     TacheComponent,
     AddTacheComponent,
@@ -66,7 +89,8 @@ import { UpdateTacheComponent } from './components/crm/tache/update-tache/update
     AdminRoutingModule,
     PrimengModule,
     MaterielModule,
-    ReactiveFormsModule,
+     ReactiveFormsModule,
+    FormsModule
   ]
 
 })

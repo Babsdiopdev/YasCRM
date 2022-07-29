@@ -2,9 +2,10 @@
     <h1 mat-dialog-title>{{title}}</h1>
     <button mat-dialog-close pButton pRipple type="button" icon="pi pi-times" class="p-button-rounded p-button-danger p-button-outlined"></button>
 </div>
+{{data|json}}
 <mat-dialog-content>
     <form [formGroup]="contactForm" #form>
-        <div class="row mt-2" >
+        <div class="row mt-2">
             <div class="col-md-8 col-sm-12">
                 <div class="form-group">
                     <input type="text" pInputText class="col-12" placeholder="Prenom" formControlName="prenom">
@@ -12,7 +13,7 @@
             </div>
             <div class="col-md-4 col-sm-12">
                 <div class="form-group">
-                    <input type="text" pInputText class="col-12"  placeholder="Nom" formControlName="nom">
+                    <input type="text" pInputText class="col-12" placeholder="Nom" formControlName="nom">
                 </div>
             </div>
             <div class="col-md-4 col-sm-12">
@@ -41,15 +42,15 @@
                 </div>
             </div>
             <div class="col-md-4 col-sm-12">
-                <div class="form-group" >
+                <div class="form-group">
                     <p-dropdown [options]="typeOptions" optionLabel="value" placeholder="Type contact" [style]="{'width': '100%'}" [appendTo]="form" formControlName="typeContact">
                     </p-dropdown>
                 </div>
             </div>
-        </div>  
+        </div>
     </form>
 </mat-dialog-content>
 <mat-dialog-actions align="end">
     <button mat-dialog-close pButton pRipple type="button" label="Annuler" icon="pi pi-times" iconPos="right" class="p-button-text p-button-danger mr-2"></button>
-    <button  [disabled]="!contactForm.valid" (click)="onsaveContact()"pButton pRipple type="button" [label]="buttonLabel" icon="pi pi-check" iconPos="right" class="p-button-text"></button>
+    <button [disabled]="!contactForm.valid" (click)="onsaveContact()" pButton pRipple type="button" [label]="buttonLabel" icon="pi pi-check" iconPos="right" class="p-button-text"></button>
 </mat-dialog-actions>

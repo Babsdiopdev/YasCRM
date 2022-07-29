@@ -10,7 +10,7 @@ export class AgendaComponent implements OnInit {
   calendarOptions: CalendarOptions = {
     initialView: 'dayGridMonth'
   };
-  
+
   constructor() { }
 
   ngOnInit(): void {

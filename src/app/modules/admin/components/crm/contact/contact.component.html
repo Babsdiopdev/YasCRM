@@ -8,7 +8,7 @@
                     <h6 class="m-0 p-0text-dark">Contact</h6>
                 </div>
                 <div class="col-sm-6" style="text-align: end;">
-                    <span ><a>CRM</a></span> / <span><a>Contact</a></span>
+                    <span><a>CRM</a></span> / <span><a>Contact</a></span>
                 </div>
             </div>
         </div>
@@ -60,9 +60,7 @@
                     </div>
                 </div>
                 <div class="col-md-12">
-                    <p-table #dt1 [value]="contacts" dataKey="id" [rows]="10" [showCurrentPageReport]="true"
-                        [rowsPerPageOptions]="[10,25,50]" styleClass="p-datatable-customers p-datatable-gridlines"
-                        [paginator]="true" currentPageReportTemplate="{last} / {totalRecords} contacts"
+                    <p-table #dt1 [value]="contacts" dataKey="id" [rows]="10" [showCurrentPageReport]="true" [rowsPerPageOptions]="[10,25,50]" styleClass="p-datatable-customers p-datatable-gridlines" [paginator]="true" currentPageReportTemplate="{last} / {totalRecords} contacts"
                         [globalFilterFields]="['nom', 'prenom', 'telephone', 'pays', 'typeContact', 'email', 'reference', 'civilite', 'fonction']">
                         <ng-template pTemplate="caption">
                             <div class="row">
@@ -75,13 +73,13 @@
                                 <div class="col-sm-6 text-right">
                                     <button (click)="onopenAddContact()" pButton pRipple type="button" label="Nouveau contact" icon="pi pi-plus" iconPos="right" class="p-button-raised p-button-text"></button>
                                 </div>
-                                </div>
+                            </div>
                         </ng-template>
                         <ng-template pTemplate="header">
                             <tr>
                                 <th>
                                     <div class="p-d-flex p-jc-between p-ai-center">
-                                        Référence                                 
+                                        Référence
                                     </div>
                                 </th>
                                 <th>

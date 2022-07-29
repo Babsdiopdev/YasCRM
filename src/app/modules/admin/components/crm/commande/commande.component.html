@@ -15,9 +15,7 @@
         <div class="container-fluid">
             <div class="row">
                 <div class="col-md-12">
-                    <p-table #dt1 [value]="commandes" dataKey="id" [rows]="10" [showCurrentPageReport]="true"
-                        [rowsPerPageOptions]="[10,25,50]" styleClass="p-datatable-customers p-datatable-gridlines"
-                        [paginator]="true" currentPageReportTemplate="{last} / {totalRecords} contacts"
+                    <p-table #dt1 [value]="commandes" dataKey="id" [rows]="10" [showCurrentPageReport]="true" [rowsPerPageOptions]="[10,25,50]" styleClass="p-datatable-customers p-datatable-gridlines" [paginator]="true" currentPageReportTemplate="{last} / {totalRecords} contacts"
                         [globalFilterFields]="['nom', 'prenom', 'telephone', 'pays', 'typeContact', 'email', 'reference', 'civilite', 'fonction']">
                         <ng-template pTemplate="caption">
                             <div class="row">
@@ -30,14 +28,14 @@
                                 <div class="col-sm-6 text-right">
                                     <button (click)="onopenAddCommande()" pButton pRipple type="button" label="Nouvelle commande" icon="pi pi-plus" iconPos="right" class="p-button-raised p-button-text"></button>
                                 </div>
-                                </div>
+                            </div>
                         </ng-template>
                         <ng-template pTemplate="header">
                             <tr>
                                 <th style="width: 3rem"></th>
                                 <th>
                                     <div class="p-d-flex p-jc-between p-ai-center">
-                                        Référence                                 
+                                        Référence
                                     </div>
                                 </th>
                                 <th>
@@ -85,7 +83,7 @@
                                     {{commande.totalCommande}}
                                 </td>
                                 <td>
-                                   
+
                                     <p-message [severity]="getColor(commande.etat)" text=" {{commande.etat | formatEnum}}"></p-message>
                                 </td>
                                 <td>
@@ -129,27 +127,27 @@
                                                 <tr>
                                                     <th>
                                                         <div class="p-d-flex p-jc-between p-ai-center">
-                                                            Libellé                                
+                                                            Libellé
                                                         </div>
                                                     </th>
                                                     <th>
                                                         <div class="p-d-flex p-jc-between p-ai-center">
-                                                            Prix unitaire                                 
+                                                            Prix unitaire
                                                         </div>
                                                     </th>
                                                     <th>
                                                         <div class="p-d-flex p-jc-between p-ai-center">
-                                                            Qté                               
+                                                            Qté
                                                         </div>
                                                     </th>
                                                     <th>
                                                         <div class="p-d-flex p-jc-between p-ai-center">
-                                                            Date                              
+                                                            Date
                                                         </div>
                                                     </th>
                                                     <th>
                                                         <div class="p-d-flex p-jc-between p-ai-center">
-                                                            Total                                 
+                                                            Total
                                                         </div>
                                                     </th>
                                                 </tr>
@@ -184,4 +182,5 @@
         </div>
     </section>
 </div>
+
 <!-- /.content-wrapper -->
