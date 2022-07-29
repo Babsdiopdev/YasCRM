@@ -49,13 +49,27 @@ rv: any = {};
       //alert(JSON.stringify(addForm.value))
 
       this.rvService.updateRvById(this.data.rv.id,addForm.value).subscribe(
-    (response:Rv) =>{
-      this.dialog.closeAll
-      console.log(response);
-  },
-    (error:HttpErrorResponse) =>{
-      alert(error.message);
-    }
+        (response) => {
+          Swal.fire({
+            position: 'top-end',
+            icon: (response.status === 'OK') ? 'success': 'error',
+            title: `<small>${response.message}</small>`,
+            showConfirmButton: false,
+            timer: 1500
+          }).then((result) => {
+              if(result.dismiss) {
+                this.dialog.closeAll();
+              }
+            }
+          );
+        }
+  //   (response:Rv) =>{
+  //     this.dialog.closeAll
+  //     console.log(response);
+  // },
+  //   (error:HttpErrorResponse) =>{
+  //     alert(error.message);
+  //   }
   );
   }
 

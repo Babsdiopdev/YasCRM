@@ -1,7 +1,8 @@
 
 import { HttpErrorResponse } from '@angular/common/http';
-import { Component, OnInit } from '@angular/core';
+import { Component, Inject, OnInit } from '@angular/core';
 import { FormGroup, NgForm } from '@angular/forms';
+import { MatDialog, MAT_DIALOG_DATA } from '@angular/material/dialog';
 import { Contact } from 'src/app/models/contact.model';
 import { Employe } from 'src/app/models/employe.model';
 import { Rv } from 'src/app/models/rv.model';
@@ -9,6 +10,7 @@ import { ContactService } from 'src/app/services/contact.service';
 import { EmployeService } from 'src/app/services/employe.service';
 
 import { RvService } from 'src/app/services/rv.service';
+import Swal from 'sweetalert2';
 @Component({
   selector: 'app-add-rv',
   templateUrl: './add-rv.component.html',
@@ -17,6 +19,7 @@ import { RvService } from 'src/app/services/rv.service';
 
 export class AddRVComponent implements OnInit {
   contactForm!: FormGroup;
+  date_fin!: "date de fin";
 
   rvResponse: any;
 contacts: Contact[] = [];
@@ -27,7 +30,8 @@ employes:Employe[] =[];
 
 
   constructor(private rvService:RvService, private contactService: ContactService,
-    private employeService:EmployeService) { }
+    private employeService:EmployeService, private dialog: MatDialog,
+    @Inject(MAT_DIALOG_DATA) public data: any) { }
 
   ngOnInit(): void {
     this.getAllContacts();
@@ -39,12 +43,26 @@ employes:Employe[] =[];
     addForm.controls['employeId'].setValue(addForm.value.employeId.id)
 
  this.rvService.saveRv(addForm.value).subscribe(
-   (response:Rv) =>{
-     console.log(response);
- },
-   (error:HttpErrorResponse) =>{
-     alert(error.message);
-   }
+  (response) => {
+    Swal.fire({
+      position: 'top-end',
+      icon: (response.status === 'OK') ? 'success': 'error',
+      title: `<small>${response.message}</small>`,
+      showConfirmButton: false,
+      timer: 1500
+    }).then((result) => {
+        if(result.dismiss) {
+          this.dialog.closeAll();
+        }
+      }
+    );
+  }
+//    (response:Rv) =>{
+//      console.log(response);
+//  },
+//    (error:HttpErrorResponse) =>{
+//      alert(error.message);
+//    }
  );
  }
  getAllContacts() {

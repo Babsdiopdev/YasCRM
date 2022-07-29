@@ -39,8 +39,8 @@ export class RvComponent implements OnInit {
   }
    openAddRv() {
      const dialogConfig = new MatDialogConfig();
-     dialogConfig.width = '720px';
-     dialogConfig.height = '500px';
+     dialogConfig.width = '730px';
+     dialogConfig.height = '530px';
      dialogConfig.backdropClass = 'bacdrop-modal';
      dialogConfig.disableClose = true;
    const dialogRef = this.dialog.open(AddRVComponent, dialogConfig)
@@ -68,8 +68,8 @@ export class RvComponent implements OnInit {
 
 UpdateRv(rv:Rv){
   const dialogConfig = new MatDialogConfig();
-  dialogConfig.width = '720px';
-  dialogConfig.height = '600';
+  dialogConfig.width = '730px';
+  dialogConfig.height = '500';
   dialogConfig.backdropClass = 'bacdrop-modal';
   dialogConfig.disableClose = true;
   dialogConfig.data = {'rv':rv};

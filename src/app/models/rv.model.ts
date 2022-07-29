@@ -2,6 +2,8 @@ import { Contact } from "./contact.model"
 import { Employe } from "./employe.model"
 
 export interface Rv{
+  status: string
+  message: any
    id: number
  reference:string
  titre: string

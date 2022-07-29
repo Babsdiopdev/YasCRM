@@ -3,42 +3,43 @@
     <form #addForm="ngForm" (ngSubmit)="onAddRv(addForm)">
         <div id="head" class="col-12 m-0 mb-3 p-0">
             <legend>Nouveau Rv</legend>
-            <em class="pi pi-times" mat-dialog-close></em>
+            <button mat-dialog-close pButton pRipple type="button" icon="pi pi-times" class="p-button-rounded p-button-danger p-button-outlined"></button>
+            <!-- <em class="pi pi-times" mat-dialog-close></em> -->
         </div>
         <div class="row m-0 mt-4">
             <div class="col-md-6 col-sm-12">
-                <label class="col-12 p-0" for="titre">Titre</label>
-                <input class="col-12" type="text" ngModel name="titre" placeholder="titre" pInputText/>
+                <!-- <label class="col-12 p-0" for="titre">Titre</label> -->
+                <input class="col-12 mb-3" type="text" ngModel name="titre" placeholder="titre" pInputText/>
             </div>
             <div class="col-md-6 col-sm-12">
-                <label class="col-12 p-0" for="lieu">Lieu</label>
+                <!-- <label class="col-12 p-0" for="lieu">Lieu</label> -->
                 <input class="col-12" type="text" ngModel name="lieu" placeholder="Lieu" pInputText />
             </div>
-
             <div class="col-md-6 col-sm-12">
-                <label>Contact</label>
+                <!-- <label class="col-12 p-0" for="civilité">Date de début</label> -->
+                <input class="col-12 mb-3" type="text" ngModel name="date_debut" onfocus="(this.type='date')" placeholder="Date de début" pInputText />
+            </div>
+            <div class="col-md-6 col-sm-12">
+                <!-- <label>Contact</label> -->
                 <p-dropdown [options]="contacts" optionLabel="prenom" placeholder="Contact" [style]="{'width': '100%'}" ngModel="contactId" name="contactId"></p-dropdown>
             </div>
 
+
             <div class="col-md-6 col-sm-12">
-                <label class="col-12 p-0" for="civilité">Date de début</label>
-                <input class="col-12" type="Date" ngModel name="date_debut" placeholder="date de début" pInputText />
+                <!-- <label class="col-12 p-0" for="date_fin">Date de fin</label> -->
+                <input class="col-12 mb-3" type="text" ngModel name="date_fin" onfocus="(this.type='date')" placeholder="date de fin" pInputText />
             </div>
             <div class="col-md-6 col-sm-12">
-                <label class="col-12 p-0" for="date_fin">Date de fin</label>
-                <input class="col-12" type="Date" ngModel name="date_fin" placeholder="date_fin" pInputText />
+                <!-- <label class="col-12 p-0" for="heure_debut">Heure de début</label> -->
+                <input class="col-12" type="text" ngModel name="heure_debut" onfocus="(this.type='time')" placeholder="Heure de début" pInputText />
             </div>
             <div class="col-md-6 col-sm-12">
-                <label class="col-12 p-0" for="heure_debut">Heure de début</label>
-                <input class="col-12" type="time" ngModel name="heure_debut" placeholder="Heure de début" pInputText />
-            </div>
-            <div class="col-md-6 col-sm-12">
-                <label class="col-12 p-0" for="adresse">Heure de fin</label>
-                <input class="col-12" type="time" ngModel name="heure_fin" placeholder="Heure de fin" pInputText />
+                <!-- <label class="col-12 p-0" for="adresse">Heure de fin</label> -->
+                <input class="col-12 mb-3" type="text" ngModel onfocus="(this.type='time')" name="heure_fin" placeholder="Heure de fin" pInputText />
             </div>
 
             <div class="col-md-6 col-sm-12">
-                <label>Responsables</label>
+                <!-- <label>Responsables</label> -->
                 <p-dropdown [options]="employes" optionLabel="prenom" placeholder="Responsables" [style]="{'width': '100%'}" ngModel="employeId" name="employeId"></p-dropdown>
             </div>
 
@@ -50,8 +51,8 @@
         </div>
 
         <div style="float: right; margin-top:20px">
-            <button type="button" id="addContact" mat-button mat-dialog-close class="alert alert-danger">Annuler</button>
-            <button [disabled]="addForm.invalid" mat-button id="button" type="submit" class="alert alert-primary ml-3">Enrigistrer</button>
+            <button type="button" id="addContact" mat-button mat-dialog-close pButton pRipple label="Annuler" iconPos="right" class="p-button-text p-button-danger"></button>
+            <button [disabled]="addForm.invalid" mat-button type="submit" pButton pRipple label="Enrigistrer" iconPos="right" class="p-button-text"></button>
         </div>
 
     </form>
