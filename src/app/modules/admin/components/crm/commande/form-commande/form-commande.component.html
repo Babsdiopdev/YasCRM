@@ -5,6 +5,11 @@
 <mat-dialog-content #formulaire>
     <form [formGroup]="commandeForm">
         <div class="row mt-2">
+            <div class="col-md-12 col-sm-12">
+                <div class="form-group">
+                    <input type="text" pInputText class="col-12" placeholder="Référence" formControlName="">
+                </div>
+            </div>
             <div class="col-md-12">
                 <div class="form-group">
                     <div class="form-group">
@@ -34,9 +39,9 @@
             <div class="col-md-12 mb-4" style="text-align: center; cursor: pointer;">
                 <small (click)="addArticleForm()" class="text-success">Ajouter un article</small>
             </div>
-            <div class="col-md-12">
+            <div class="col-md-12" *ngIf="typeOperation === 'update'">
                 <div class="form-group">
-                    <p-dropdown [options]="etatOptions" optionLabel="label" optionDisabled="disabled" placeholder="Etat" [style]="{'width': '100%'}" [appendTo]="formulaire" formControlName="etat" [disabled]="(typeOperation === 'save')? true : false">
+                    <p-dropdown [options]="etatOptions" optionLabel="label" optionDisabled="disabled" placeholder="Etat" [style]="{'width': '100%'}" [appendTo]="formulaire" formControlName="etat">
                     </p-dropdown>
                 </div>
             </div>

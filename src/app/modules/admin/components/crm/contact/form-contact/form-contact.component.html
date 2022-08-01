@@ -2,10 +2,14 @@
     <h1 mat-dialog-title>{{title}}</h1>
     <button mat-dialog-close pButton pRipple type="button" icon="pi pi-times" class="p-button-rounded p-button-danger p-button-outlined"></button>
 </div>
-{{data|json}}
 <mat-dialog-content>
     <form [formGroup]="contactForm" #form>
         <div class="row mt-2">
+            <div class="col-md-12 col-sm-12">
+                <div class="form-group">
+                    <input type="text" pInputText class="col-12" placeholder="Référence" formControlName="">
+                </div>
+            </div>
             <div class="col-md-8 col-sm-12">
                 <div class="form-group">
                     <input type="text" pInputText class="col-12" placeholder="Prenom" formControlName="prenom">
