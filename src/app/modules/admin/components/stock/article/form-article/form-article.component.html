@@ -5,6 +5,11 @@
 <mat-dialog-content>
     <form [formGroup]="articleForm" #form>
         <div class="row mt-2" >
+            <div class="col-md-12 col-sm-12">
+                <div class="form-group">
+                    <input type="text" pInputText class="col-12" placeholder="Référence" formControlName="">
+                </div>
+            </div>
             <div class="col-sm-12">
                 <div class="form-group">
                     <input type="text" pInputText class="col-12" placeholder="Libelle" formControlName="libelle">
