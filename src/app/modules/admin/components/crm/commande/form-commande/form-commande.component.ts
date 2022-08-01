@@ -27,8 +27,8 @@ export class FormCommandeComponent implements OnInit {
 
   articles: any[] = [];
 
-  etatOptions = [ 
-    {label: 'Validée', value: 'VALIDE', disabled: false}, 
+  etatOptions = [
+    {label: 'Validée', value: 'VALIDE', disabled: false},
     {label: 'En cours', value: 'EN_COURS', disabled: false},
     {label: 'Annulée', value: 'ANNULE', disabled: false}
   ];
@@ -114,7 +114,7 @@ export class FormCommandeComponent implements OnInit {
       }
 
       this.commandeForm.get('articles')?.setValue(articles);
-    } 
+    }
   }
 
   getArticlesForm(): FormArray {
@@ -155,7 +155,7 @@ export class FormCommandeComponent implements OnInit {
       for(let value of this.commandeForm.value['articles']) {
         articles.push({
           id: value.id,
-          qte: value.qte, 
+          qte: value.qte,
           articleId: value.article.id
         });
       }
@@ -222,7 +222,7 @@ export class FormCommandeComponent implements OnInit {
                 timer: 1500
               }).then((result) => {
                 if(result.dismiss && response.status === 'OK') {
-                  //this.getOnlyCommande(); 
+                  //this.getOnlyCommande();
                 }
               });
             }

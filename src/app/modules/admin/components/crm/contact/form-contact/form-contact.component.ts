@@ -1,6 +1,6 @@
-import { Component, Input, OnInit } from '@angular/core';
+import { Component, Inject, Input, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
-import { MatDialog } from '@angular/material/dialog';
+import { MatDialog, MAT_DIALOG_DATA } from '@angular/material/dialog';
 import { Contact } from 'src/app/models/contact.model';
 import { ContactService } from 'src/app/services/contact.service';
 import Swal from 'sweetalert2';
@@ -25,7 +25,8 @@ export class FormContactComponent implements OnInit {
   constructor(
     private fb: FormBuilder,
     private contactService: ContactService,
-    private dialog: MatDialog
+    private dialog: MatDialog,
+     @Inject(MAT_DIALOG_DATA) public data: any
   ) { }
 
   ngOnInit(): void {
@@ -72,7 +73,7 @@ export class FormContactComponent implements OnInit {
       this.contactForm.get('civilite')?.setValue(civilite);
       this.contactForm.get('typeContact')?.setValue(typeContact);
     }
-    
+
   }
 
   onsaveContact() {

@@ -4,7 +4,7 @@
 </div>
 <mat-dialog-content #formulaire>
     <form [formGroup]="commandeForm">
-        <div class="row mt-2" >
+        <div class="row mt-2">
             <div class="col-md-12">
                 <div class="form-group">
                     <div class="form-group">
@@ -16,8 +16,7 @@
                 <div class="row" [formGroupName]="i">
                     <div class="col-md-6 col-sm-12">
                         <div class="form-group">
-                            <p-dropdown [options]="articles" optionLabel="libelle" placeholder="Articles" 
-                                [style]="{'width': '100%'}" [appendTo]="formulaire" formControlName="article">
+                            <p-dropdown [options]="articles" optionLabel="libelle" placeholder="Articles" [style]="{'width': '100%'}" [appendTo]="formulaire" formControlName="article">
                             </p-dropdown>
                         </div>
                     </div>
@@ -27,9 +26,7 @@
                         </div>
                     </div>
                     <div class="col-md-1 col-sm-12" style="justify-content: space-between;">
-                        <button style="float: right;" pButton pRipple 
-                            type="button" icon="pi pi-times" (click)="removeArticleFormCommande(i)"
-                            class="p-button-rounded p-button-outlined p-button-danger">
+                        <button style="float: right;" pButton pRipple type="button" icon="pi pi-times" (click)="removeArticleFormCommande(i)" class="p-button-rounded p-button-outlined p-button-danger">
                         </button>
                     </div>
                 </div>
@@ -39,18 +36,14 @@
             </div>
             <div class="col-md-12">
                 <div class="form-group">
-                    <p-dropdown [options]="etatOptions" 
-                        optionLabel="label" optionDisabled="disabled" 
-                        placeholder="Etat" [style]="{'width': '100%'}"
-                        [appendTo]="formulaire" formControlName="etat"
-                        [disabled]="(typeOperation === 'save')? true : false">
+                    <p-dropdown [options]="etatOptions" optionLabel="label" optionDisabled="disabled" placeholder="Etat" [style]="{'width': '100%'}" [appendTo]="formulaire" formControlName="etat" [disabled]="(typeOperation === 'save')? true : false">
                     </p-dropdown>
                 </div>
-            </div>         
-        </div>  
+            </div>
+        </div>
     </form>
 </mat-dialog-content>
 <mat-dialog-actions align="end">
     <button (click)="oncloseDialog()" pButton pRipple type="button" label="Annuler" icon="pi pi-times" iconPos="right" class="p-button-text p-button-danger mr-2"></button>
-    <button  [disabled]="!commandeForm.valid" (click)="onsaveCommande()"pButton pRipple type="button" [label]="buttonLabel" icon="pi pi-check" iconPos="right" class="p-button-text"></button>
+    <button [disabled]="!commandeForm.valid" (click)="onsaveCommande()" pButton pRipple type="button" [label]="buttonLabel" icon="pi pi-check" iconPos="right" class="p-button-text"></button>
 </mat-dialog-actions>

@@ -41,7 +41,7 @@ export class FormArticleComponent implements OnInit {
     } else if(this.typeOperation === 'update') {
 
       let etat = {};
-      
+
       this.etatOptions.forEach(e => {
         if(e.value === this.article.etat) {
           etat = e;

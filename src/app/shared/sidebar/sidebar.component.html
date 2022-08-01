@@ -6,102 +6,113 @@
         <span class="brand-text font-weight-light">WEBGRAM ERP</span>
     </a>
 
-  <!-- Sidebar -->
-  <div class="sidebar">
-    <!-- Sidebar user panel (optional) -->
-    <div class="user-panel mt-3 pb-3 mb-3 d-flex">
-      <div class="info" style="text-align: center;">
-        <a class="text-center">Mamadou Ndiaye</a>
-      </div>
+    <!-- Sidebar -->
+    <div class="sidebar">
+        <!-- Sidebar user panel (optional) -->
+        <div class="user-panel mt-3 pb-3 mb-3 d-flex">
+            <div class="info" style="text-align: center;">
+                <a class="text-center">Mamadou Ndiaye</a>
+            </div>
+        </div>
+        <!-- Sidebar Menu -->
+        <nav class="mt-2">
+          <ul class="nav nav-pills nav-sidebar flex-column" data-widget="treeview" role="menu">
+            <li class="nav-item">
+              <a class="nav-link"  routerLink="/admin/agenda" routerLinkActive="active">
+                <i class="far fa-circle nav-icon"></i>
+                <p>Agenda</p>
+              </a>
+            </li>
+            <li class="nav-item menu-open">
+              <a class="nav-link">
+                <mat-icon [style]="{'vertical-align': 'middle'}">badge</mat-icon>
+                <p>
+                  CRM & Ventes
+                  <i class="right fas fa-angle-left"></i>
+                </p>
+              </a>
+              <ul class="nav nav-treeview">
+                <li class="nav-item">
+                  <a class="nav-link" routerLink="admin/crm/contact" routerLinkActive="active">
+                    <i class="far fa-circle nav-icon"></i>
+                    <p>Contacts</p>
+                  </a>
+                </li>
+                <li class="nav-item">
+                  <a class="nav-link" routerLink="admin/crm/commande" routerLinkActive="active">
+                    <i class="far fa-circle nav-icon"></i>
+                    <p>Commandes</p>
+                  </a>
+                </li>
+                <li class="nav-item">
+                  <a class="nav-link" routerLink="admin/crm/devis" routerLinkActive="active">
+                    <i class="far fa-circle nav-icon"></i>
+                    <p>Devis</p>
+                  </a>
+                </li>
+                <li class="nav-item">
+                  <a class="nav-link" routerLink="admin/rendezVous" routerLinkActive="active">
+                      <i class="far fa-circle nav-icon"></i>
+                      <p>Rendez vous</p>
+                  </a>
+              </li>
+              </ul>
+            </li>
+            <li class="nav-item menu-open">
+              <a class="nav-link">
+                <mat-icon [style]="{'vertical-align': 'middle'}">badge</mat-icon>
+                <p>
+                  Achats
+                  <i class="right fas fa-angle-left"></i>
+                </p>
+              </a>
+              <ul class="nav nav-treeview">
+                <li class="nav-item">
+                  <a class="nav-link" routerLink="admin/achats/fournisseur" routerLinkActive="active">
+                    <i class="far fa-circle nav-icon"></i>
+                    <p>Fournisseurs</p>
+                  </a>
+                </li>
+                <!--<li class="nav-item">
+                  <a class="nav-link" routerLink="" routerLinkActive="">
+                    <i class="far fa-circle nav-icon"></i>
+                    <p>Commandes</p>
+                  </a>
+                </li>
+                <li class="nav-item">
+                  <a class="nav-link" routerLink="" routerLinkActive="">
+                    <i class="far fa-circle nav-icon"></i>
+                    <p>Approvisionnements</p>
+                  </a>
+                </li>-->
+              </ul>
+            </li>
+            <li class="nav-item menu-open">
+              <a class="nav-link">
+                <mat-icon [style]="{'vertical-align': 'middle'}">badge</mat-icon>
+                <p>
+                  Stock
+                  <i class="right fas fa-angle-left"></i>
+                </p>
+              </a>
+              <ul class="nav nav-treeview">
+                <li class="nav-item">
+                  <a class="nav-link" routerLink="admin/stock/article" routerLinkActive="active">
+                    <i class="far fa-circle nav-icon"></i>
+                    <p>Articles</p>
+                  </a>
+                </li>
+              </ul>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" routerLink="admin/configuration" routerLinkActive="active">
+                <i class="far fa-circle nav-icon"></i>
+                <p>Configuration</p>
+              </a>
+            </li>
+          </ul>
+        </nav>
+        <!-- /.sidebar-menu -->
     </div>
-
-    <!-- Sidebar Menu -->
-    <nav class="mt-2">
-      <ul class="nav nav-pills nav-sidebar flex-column" data-widget="treeview" role="menu">
-        <li class="nav-item menu-open">
-          <a class="nav-link">
-            <mat-icon [style]="{'vertical-align': 'middle'}">badge</mat-icon>
-            <p>
-              CRM & Ventes
-              <i class="right fas fa-angle-left"></i>
-            </p>
-          </a>
-          <ul class="nav nav-treeview">
-            <li class="nav-item">
-              <a class="nav-link" routerLink="admin/crm/contact" routerLinkActive="active">
-                <i class="far fa-circle nav-icon"></i>
-                <p>Contacts</p>
-              </a>
-            </li>
-            <li class="nav-item">
-              <a class="nav-link" routerLink="admin/crm/commande" routerLinkActive="active">
-                <i class="far fa-circle nav-icon"></i>
-                <p>Commandes</p>
-              </a>
-            </li>
-            <li class="nav-item">
-              <a class="nav-link" routerLink="admin/crm/devis" routerLinkActive="active">
-                <i class="far fa-circle nav-icon"></i>
-                <p>Devis</p>
-              </a>
-            </li>
-          </ul>
-        </li>
-        <li class="nav-item menu-open">
-          <a class="nav-link">
-            <mat-icon [style]="{'vertical-align': 'middle'}">badge</mat-icon>
-            <p>
-              Achats
-              <i class="right fas fa-angle-left"></i>
-            </p>
-          </a>
-          <ul class="nav nav-treeview">
-            <li class="nav-item">
-              <a class="nav-link" routerLink="admin/achats/fournisseur" routerLinkActive="active">
-                <i class="far fa-circle nav-icon"></i>
-                <p>Fournisseurs</p>
-              </a>
-            </li>
-            <!--<li class="nav-item">
-              <a class="nav-link" routerLink="" routerLinkActive="">
-                <i class="far fa-circle nav-icon"></i>
-                <p>Commandes</p>
-              </a>
-            </li>
-            <li class="nav-item">
-              <a class="nav-link" routerLink="" routerLinkActive="">
-                <i class="far fa-circle nav-icon"></i>
-                <p>Approvisionnements</p>
-              </a>
-            </li>-->
-          </ul>
-        </li>
-        <li class="nav-item menu-open">
-          <a class="nav-link">
-            <mat-icon [style]="{'vertical-align': 'middle'}">badge</mat-icon>
-            <p>
-              Stock
-              <i class="right fas fa-angle-left"></i>
-            </p>
-          </a>
-          <ul class="nav nav-treeview">
-            <li class="nav-item">
-              <a class="nav-link" routerLink="admin/stock/article" routerLinkActive="active">
-                <i class="far fa-circle nav-icon"></i>
-                <p>Articles</p>
-              </a>
-            </li>
-          </ul>
-        </li>
-        <li class="nav-item">
-          <a class="nav-link" routerLink="admin/configuration" routerLinkActive="active">
-            <i class="far fa-circle nav-icon"></i>
-            <p>Configuration</p>
-          </a>
-        </li>
-      </ul>
-    </nav>
-    <!-- /.sidebar-menu -->
-  </div>
   <!-- /.sidebar -->
 </aside>

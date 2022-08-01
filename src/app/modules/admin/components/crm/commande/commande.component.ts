@@ -1,3 +1,4 @@
+
 import { Component, OnInit, ViewChild } from '@angular/core';
 import { MatDialog, MatDialogConfig } from '@angular/material/dialog';
 import { Table } from 'primeng/table';
@@ -14,6 +15,7 @@ import { UpdateCommandeComponent } from './update-commande/update-commande.compo
   styleUrls: ['./commande.component.scss']
 })
 export class CommandeComponent implements OnInit {
+
 
   @ViewChild('dt1 ') dt1: Table | undefined;
 
@@ -41,7 +43,6 @@ export class CommandeComponent implements OnInit {
       }
     );
   }
-
   onopenAddCommande() {
     const dialogConfig = new MatDialogConfig();
     dialogConfig.width = '800px';
@@ -66,6 +67,9 @@ export class CommandeComponent implements OnInit {
       this.getAllCommandes();
     });
   }
+
+//   ondeleteCommandeById(commande: Commande) {}
+// }
 
   ondeleteCommandeById(commande: Commande) {
     Swal.fire({
@@ -94,7 +98,7 @@ export class CommandeComponent implements OnInit {
       }
     })
   }
-  
+
   onvalidateCommande(commande: Commande) {
     const commandeHelper: CommandeHelper = new CommandeHelper(this.commandeService);
     commandeHelper.updateCommande(this, undefined, commande, undefined, commande.etatDevis, 'VALIDE', commande.etape);

@@ -1,0 +1,145 @@
+Content Wrapper.-->
+<div class="content-wrapper">
+    <!-- Content Header -->
+    <div class="content-header">
+        <div class="container-fluid">
+            <div class="row mb-2">
+                <div class="col-sm-6">
+                    <h6 class="m-0 p-0text-dark">Rendez vous</h6>
+                </div>
+
+            </div>
+        </div>
+    </div>
+    <!-- Main content -->
+    <section class="content">
+        <div class="container-fluid">
+            <div class="row">
+
+                <div class="col-md-12">
+                    <p-table #dt1 [value]="rvs" dataKey="id" [rows]="10" [showCurrentPageReport]="true" [rowsPerPageOptions]="[10,25,50]" styleClass="p-datatable-customers p-datatable-gridlines" [paginator]="true" currentPageReportTemplate="{last} / {totalRecords} rvs" [globalFilterFields]="['reference', 'titre']">
+                        <ng-template pTemplate="caption">
+                            <div class="row">
+                                <div class="col-sm-6 text-left">
+                                    <span class="p-input-icon-right p-ml-auto">
+                                    <i class="pi pi-search"></i>
+                                    <input pInputText type="text" (input)="applyFilterGlobal($event, 'contains')" placeholder="mot clé" />
+                                </span>
+                                </div>
+                                <div class="col-sm-6 text-right">
+                                    <button pButton pRipple type="button" label="Nouveau Rv" (click)="openAddRv()" icon="pi pi-plus" iconPos="right" class="p-button-raised p-button-text"></button>
+                                </div>
+                            </div>
+                        </ng-template>
+                        <ng-template pTemplate="header">
+                            <tr>
+                                <!-- <th>
+                                    <div class="p-d-flex p-jc-between p-ai-center">
+                                        Référence
+                                    </div>
+                                </th> -->
+                                <th>
+                                    <div class="p-d-flex p-jc-between p-ai-center">
+                                        Titre
+                                    </div>
+                                </th>
+                                <th>
+                                    <div class="p-d-flex p-jc-between p-ai-center">
+                                        Heure début
+                                    </div>
+                                </th>
+                                <th>
+                                    <div class="p-d-flex p-jc-between p-ai-center">
+                                        Lieu
+                                    </div>
+                                </th>
+                                <th>
+                                    <div class="p-d-flex p-jc-between p-ai-center">
+                                        Contacts
+                                    </div>
+                                </th>
+                                <th>
+                                    <div class="p-d-flex p-jc-between p-ai-center">
+                                        Responsable
+                                    </div>
+                                </th>
+                                <!-- <th>
+                                  <div class="p-d-flex p-jc-between p-ai-center">
+                                      Pays
+                                  </div>
+                              </th> -->
+                                <!-- <th>
+                                  <div class="p-d-flex p-jc-between p-ai-center">
+                                      Fonction
+                                  </div>
+                              </th>
+                              <th>
+                                  <div class="p-d-flex p-jc-between p-ai-center">
+                                      Type
+                                  </div>
+                              </th> -->
+                                <th>
+                                    <div class="p-d-flex p-jc-between p-ai-center">
+                                        Actions
+                                    </div>
+                                </th>
+                            </tr>
+                        </ng-template>
+                        <ng-template pTemplate="body" let-rv>
+                            <tr>
+                                <!-- <td>
+                                    {{rv.reference}}
+
+                                </td> -->
+                                <td>
+                                    {{rv.titre}}
+                                </td>
+                                <td>
+                                    {{rv.heure_debut}}
+                                </td>
+                                <td>
+                                    {{rv.lieu}}
+                                </td>
+                                <td>
+                                    {{rv.contact.prenom}} {{rv.contact.nom}}
+                                </td>
+                                <td>
+                                    {{rv.employe.prenom}} {{rv.employe.nom}}
+                                </td>
+
+
+                                <!-- <td>
+                                {{contact.typeContact}}
+                            </td> -->
+                                <td>
+                                    <button mat-icon-button [matMenuTriggerFor]="menu" aria-label="Example icon-button with a menu">
+                                  <mat-icon>more_vert</mat-icon>
+                              </button>
+                                    <mat-menu #menu="matMenu" id="matMenu">
+                                        <!-- <button mat-menu-item class="buttonMenu" ">
+                                    <mat-menu #menu="matMenu" id="matMenu">
+                                      </button> -->
+                                        <button mat-menu-item class="buttonMenu" (click)="UpdateRv(rv)">
+                                      <span>Modifier</span>
+                                      <mat-icon>edit</mat-icon>
+                                  </button>
+                                        <button mat-menu-item class="buttonMenu" (click)="ondeleteRvtById(rv)">
+                                      <span>Supprimer</span>
+                                      <mat-icon>delete_forever</mat-icon>
+                                  </button>
+
+                                    </mat-menu>
+                                </td>
+                            </tr>
+                        </ng-template>
+                        <ng-template pTemplate="emptymessage">
+                            <tr>
+                                <td colspan="12"></td>
+                            </tr>
+                        </ng-template>
+                    </p-table>
+                </div>
+            </div>
+        </div>
+    </section>
+</div>
