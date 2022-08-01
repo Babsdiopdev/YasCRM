@@ -162,7 +162,8 @@ export class FormCommandeComponent implements OnInit {
 
       const commande = {
         etape: this.commandeOrDevis,
-        etat:  this.etatOptions[1].value,
+        etatCommande: (this.commandeOrDevis === 'COMMANDE')? this.etatOptions[1].value: null,
+        etatDevis: (this.commandeOrDevis === 'DEVIS')? this.etatOptions[1].value : null,
         contactId: this.commandeForm.value['contact'].id,
         ventes: articles
       };
@@ -171,7 +172,7 @@ export class FormCommandeComponent implements OnInit {
 
     } else if(this.typeOperation === 'update') {
       const commandeHelper: CommandeHelper = new CommandeHelper(this.commandeService);
-      commandeHelper.updateCommande(this, this.commande.id, undefined, this.commandeForm);
+      commandeHelper.updateCommande(this, this.commande.id, undefined, this.commandeForm, undefined, undefined);
     }
   }
 

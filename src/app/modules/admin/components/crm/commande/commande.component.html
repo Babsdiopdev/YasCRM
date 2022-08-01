@@ -82,9 +82,8 @@
                                 <td>
                                     {{commande.totalCommande}}
                                 </td>
-                                <td>
-
-                                    <p-message [severity]="getColor(commande.etat)" text=" {{commande.etat | formatEnum}}"></p-message>
+                                <td>         
+                                    <p-message [severity]="getColor(commande.etatCommande)" text=" {{commande.etatCommande | formatEnum}}"></p-message>
                                 </td>
                                 <td>
                                     <button mat-icon-button [matMenuTriggerFor]="menu" aria-label="Example icon-button with a menu">
@@ -102,15 +101,15 @@
 
                                         <p-divider></p-divider>
 
-                                        <button mat-menu-item *ngIf="commande.etat === 'EN_COURS'" class="buttonMenu" (click)="onvalidateCommande(commande)">
+                                        <button mat-menu-item *ngIf="commande.etatCommande === 'EN_COURS'" class="buttonMenu" (click)="onvalidateCommande(commande)">
                                             <span>Valider</span>
                                             <mat-icon>check_circle</mat-icon>
                                         </button>
-                                        <button mat-menu-item *ngIf="commande.etat === 'EN_COURS'" class="buttonMenu" (click)="onCancelCommande(commande)">
+                                        <button mat-menu-item *ngIf="commande.etatCommande === 'EN_COURS'  || commande.etatCommande === 'VALIDE'" class="buttonMenu" (click)="onCancelCommande(commande)">
                                             <span>Annuler</span>
                                             <mat-icon>cancel</mat-icon>
                                         </button>
-                                        <button mat-menu-item *ngIf="commande.etat === 'VALIDE'" class="buttonMenu" (click)="ongenerateFacture(commande)">
+                                        <button mat-menu-item *ngIf="commande.etatCommande === 'VALIDE'" class="buttonMenu" (click)="ongenerateFacture(commande)">
                                             <span>Génerer facture</span>
                                             <mat-icon>cached</mat-icon>
                                         </button>

@@ -101,23 +101,23 @@ export class CommandeComponent implements OnInit {
 
   onvalidateCommande(commande: Commande) {
     const commandeHelper: CommandeHelper = new CommandeHelper(this.commandeService);
-    commandeHelper.updateCommande(this, undefined, commande, undefined, 'VALIDE', 'COMMANDE');
+    commandeHelper.updateCommande(this, undefined, commande, undefined, commande.etatDevis, 'VALIDE', commande.etape);
   }
 
   onCancelCommande(commande: Commande) {
     const commandeHelper: CommandeHelper = new CommandeHelper(this.commandeService);
-    commandeHelper.updateCommande(this, undefined, commande, undefined, 'ANNULE', 'COMMANDE');
+    commandeHelper.updateCommande(this, undefined, commande, undefined, commande.etatDevis, 'ANNULE', commande.etape);
   }
 
   ongenerateFacture(commande: Commande) {}
 
-  getColor(etat: any): string{
-    if(etat === 'VALIDE')
+  getColor(etatCommande: any): string{
+    if(etatCommande === 'VALIDE') 
       return 'success';
-    else if(etat === 'EN_COURS')
-      return 'info';
-    else if(etat === 'ANNULE')
-      return 'error';
+    else if(etatCommande === 'EN_COURS') 
+      return 'info'
+    else if(etatCommande === 'ANNULE') 
+      return 'error'
     else return '';
   }
 }

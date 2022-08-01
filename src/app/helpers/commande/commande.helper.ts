@@ -9,7 +9,7 @@ export class CommandeHelper {
         private commandeService: CommandeService
     ) {}
 
-    updateCommande(component: any, commandeId?: number, commande?: Commande, commandeForm?: FormGroup, etat?: string, etape?: string) {
+    updateCommande(component: any, commandeId?: number, commande?: Commande, commandeForm?: FormGroup, etatDevis?: string, etatCommande?: string, etape?: string) {
 
         let id: number = 0;
 
@@ -34,7 +34,8 @@ export class CommandeHelper {
             }
 
             commandeRequest.etape = etape!;
-            commandeRequest.etat = etat!;
+            commandeRequest.etatCommande = etatCommande!;
+            commandeRequest.etatDevis = etatDevis!;
             commandeRequest.contactId = commande!.contact!.id;
             commandeRequest.ventes = articles;
 

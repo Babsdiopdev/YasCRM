@@ -37,34 +37,29 @@ employes:Employe[] =[];
     this.getAllContacts();
    this.getAllEmploye()
   }
+
   public onAddRv(addForm: NgForm): void{
     document.getElementById('addContact')?.click();
     addForm.controls['contactId'].setValue(addForm.value.contactId.id)
     addForm.controls['employeId'].setValue(addForm.value.employeId.id)
 
- this.rvService.saveRv(addForm.value).subscribe(
-  (response) => {
-    Swal.fire({
-      position: 'top-end',
-      icon: (response.status === 'OK') ? 'success': 'error',
-      title: `<small>${response.message}</small>`,
-      showConfirmButton: false,
-      timer: 1500
-    }).then((result) => {
-        if(result.dismiss) {
-          this.dialog.closeAll();
-        }
-      }
-    );
+    this.rvService.saveRv(addForm.value).subscribe(
+      (response) => {
+        Swal.fire({
+          position: 'top-end',
+          icon: (response.status === 'OK') ? 'success': 'error',
+          title: `<small>${response.message}</small>`,
+          showConfirmButton: false,
+          timer: 1500
+        }).then((result) => {
+            if(result.dismiss) {
+              this.dialog.closeAll();
+            }
+          }
+        );
+      });
   }
-//    (response:Rv) =>{
-//      console.log(response);
-//  },
-//    (error:HttpErrorResponse) =>{
-//      alert(error.message);
-//    }
- );
- }
+
  getAllContacts() {
   this.contactService.getAllContacts().subscribe(
     (response) => this.contacts = response.payload

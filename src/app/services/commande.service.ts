@@ -25,19 +25,19 @@ export class CommandeService {
   }
 
   getOnlyCommandes(): Observable<any> {
-    return this.httpClient.get<any>(`${this.host}/commandes/getCommandeByEtape/COMMANDE`);
+    return this.httpClient.get<any>(`${this.host}/commandes/getAllCommandeByEtatCommande`);
   }
 
   getOnlyDevis(): Observable<any> {
-    return this.httpClient.get<any>(`${this.host}/commandes/getCommandeByEtape/DEVIS`);
+    return this.httpClient.get<any>(`${this.host}/commandes/getAllDevisByEtatDevis`);
   }
 
   saveCommande(commande: any): Observable<any> {
-    return this.httpClient.post<any>(`${this.host}/commandes/saveCommande`, commande);
+    return this.httpClient.post<any>(`${this.host}/commandes/saveCommandeContact`, commande);
   }
 
   updateCommandeyId(id: number, commande: any): Observable<any> {
-    return this.httpClient.put<any>(`${this.host}/commandes/updateCommandeById/${id}`, commande);
+    return this.httpClient.put<any>(`${this.host}/commandes/updateCommandeContactById/${id}`, commande);
   }
 
   deleteCommandeById(id: number): Observable<any> {

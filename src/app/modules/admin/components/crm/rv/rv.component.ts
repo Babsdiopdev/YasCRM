@@ -43,28 +43,11 @@ export class RvComponent implements OnInit {
      dialogConfig.height = '530px';
      dialogConfig.backdropClass = 'bacdrop-modal';
      dialogConfig.disableClose = true;
-   const dialogRef = this.dialog.open(AddRVComponent, dialogConfig)
-   .afterClosed().subscribe(
-          result => {
-            this.getAllRvs();}
-      )
+    const dialogRef = this.dialog.open(AddRVComponent, dialogConfig);
+    dialogRef.afterClosed().subscribe(result => { 
+      this.getAllRvs(); 
+    })
   }
-
- //  openRv(){
-//     const dialogConfig = new MatDialogConfig();
-//     dialogConfig.width = '720px';
-//     dialogConfig.height = '600';
-//     dialogConfig.backdropClass = 'bacdrop-modal';
-//     dialogConfig.disableClose = true;
-//     this.dialog.open(AddRVComponent, dialogConfig)
-//     .afterClosed().subscribe(
-//       result => {
-//         this.getAllRvs();}
-//     )
-  //  dialogRef.afterClosed().subscribe(result => {
-    //    console.log(`Dialog result: ${result}`);
-    //  });
-// }
 
 UpdateRv(rv:Rv){
   const dialogConfig = new MatDialogConfig();
@@ -73,12 +56,10 @@ UpdateRv(rv:Rv){
   dialogConfig.backdropClass = 'bacdrop-modal';
   dialogConfig.disableClose = true;
   dialogConfig.data = {'rv':rv};
-  this.dialog.open(UpdateRvComponent, dialogConfig)
-  .afterClosed().subscribe(
-    result => {
-
-      this.getAllRvs();}
-  )
+  const dialogRef = this.dialog.open(UpdateRvComponent, dialogConfig);
+  dialogRef.afterClosed().subscribe(result => {
+    this.getAllRvs();
+  })
 }
 
 
