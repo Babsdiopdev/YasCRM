@@ -25,23 +25,18 @@
                                             <div class="row">
                                                 <div class="col-md-6 col-sm-12">
                                                     <div class="form-group">
-                                                        <input type="number" pInputText class="col-12"  placeholder="{{configs?.tva + '%' }}" formControlName="tva">
+                                                        <input type="number" pInputText class="col-12" placeholder="{{configs?.tva + '%' }}" formControlName="tva">
                                                     </div>
                                                 </div>
                                                 <div class="col-md-6 col-sm-12" style="text-align: end;">
-                                                    <button [disabled]="!tvaForm.valid" pButton pRipple type="button" label="Sauvegarder" (click)="onupdateArticleByTva()"class="p-button-secondary"></button>
+                                                    <button [disabled]="!tvaForm.valid" pButton pRipple type="button" label="Sauvegarder" (click)="onupdateArticleByTva()" class="p-button-secondary"></button>
                                                 </div>
                                             </div>
                                         </form>
                                     </ng-template>
                                 </p-accordionTab>
                             </div>
-                            <div class="col-12 mt-2">
-                                <p-accordionTab >
-                                    <ng-template pTemplate="header">Header Content</ng-template>
-                                    <ng-template pTemplate="content">Body Content</ng-template>
-                                </p-accordionTab>
-                            </div>
+
                         </div>
                     </p-accordion>
                 </div>
